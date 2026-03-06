@@ -11,7 +11,7 @@ export default function Hero() {
         <p className="hero-slogan">
           Wij doen het werk, Jij geniet van uw tuin
         </p>
-        <a href="#quote" className="btn hero-cta">
+        <a href="/offerte" className="btn hero-cta">
           Vraag gratis offerte aan
         </a>
       </div>

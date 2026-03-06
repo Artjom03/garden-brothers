@@ -3,41 +3,63 @@ import React, { useRef } from "react";
 export default function QuoteForm() {
   const fileInput = useRef();
   return (
-    <section id="quote" className="py-16 bg-secondary-light/10">
-      <div className="container mx-auto px-4 max-w-2xl">
-        <h2 className="text-2xl md:text-3xl font-bold text-primary-dark mb-6 text-center">
-          Vraag gratis offerte aan
-        </h2>
-        <form className="bg-white rounded-lg shadow p-8 grid gap-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input required type="text" placeholder="Voornaam" className="input" />
-            <input required type="text" placeholder="Achternaam" className="input" />
-            <input required type="text" placeholder="Adres" className="input md:col-span-2" />
-            <input required type="text" placeholder="Gemeente" className="input" />
-            <input required type="tel" placeholder="Telefoon" className="input" />
-            <input required type="email" placeholder="E-mail" className="input md:col-span-2" />
+    <section id="quote" className="quote-section">
+      <div className="container quote-container">
+        <form className="quote-form">
+          <h2 className="quote-title">Vraag gratis offerte aan</h2>
+          <div className="quote-grid">
+            <div>
+              <label className="quote-label" htmlFor="quote-firstname">Naam *</label>
+              <input id="quote-firstname" required type="text" placeholder="Vul hier je naam in." className="input" />
+            </div>
+            <div>
+              <label className="quote-label" htmlFor="quote-address">Adres</label>
+              <input id="quote-address" required type="text" placeholder="Vul hier je adres in." className="input" />
+            </div>
+            <div>
+              <label className="quote-label" htmlFor="quote-phone">Telefoon</label>
+              <input id="quote-phone" required type="tel" placeholder="Vul hier je telefoonnummer in." className="input" />
+            </div>
+            <div>
+              <label className="quote-label" htmlFor="quote-email">E-mail *</label>
+              <input id="quote-email" required type="email" placeholder="Vul hier je e-mailadres in." className="input" />
+            </div>
+            <div className="quote-span-2">
+              <label className="quote-label" htmlFor="quote-subject">Onderwerp *</label>
+              <input id="quote-subject" required type="text" placeholder="Waarmee kunnen wij je helpen?" className="input" />
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <fieldset className="flex flex-col gap-2">
-              <legend className="font-semibold text-primary-dark mb-1">Duid aan welke sector u wij kunnen helpen</legend>
-              <label><input type="radio" name="sector" value="tuinonderhoud" required /> Algemeen tuinonderhoud</label>
-              <label><input type="radio" name="sector" value="hogedruk" /> Hogedrukreinigen</label>
-              <label><input type="radio" name="sector" value="beide" /> Beide</label>
+
+          <div className="quote-grid quote-grid-gap-top">
+            <fieldset className="quote-fieldset">
+              <legend className="quote-legend">Sector *</legend>
+              <label className="quote-radio-label"><input type="radio" name="sector" value="tuinonderhoud" required /> Algemeen tuinonderhoud</label>
+              <label className="quote-radio-label"><input type="radio" name="sector" value="hogedruk" /> Hogedrukreiniging</label>
+              <label className="quote-radio-label"><input type="radio" name="sector" value="beide" /> Beide</label>
             </fieldset>
-            <fieldset className="flex flex-col gap-2">
-              <legend className="font-semibold text-primary-dark mb-1">Grootte van de grond</legend>
-              <label><input type="radio" name="grootte" value="onder250" required /> Onder 250 vierkante meter</label>
-              <label><input type="radio" name="grootte" value="250-500" /> 250 a 500 vierkante meter</label>
-              <label><input type="radio" name="grootte" value="boven500" /> boven 500 vierkante meter</label>
+            <fieldset className="quote-fieldset">
+              <legend className="quote-legend">Grootte van de grond</legend>
+              <label className="quote-radio-label"><input type="radio" name="grootte" value="onder250" required /> Onder 250 vierkante meter</label>
+              <label className="quote-radio-label"><input type="radio" name="grootte" value="250-500" /> 250 a 500 vierkante meter</label>
+              <label className="quote-radio-label"><input type="radio" name="grootte" value="boven500" /> Boven 500 vierkante meter</label>
             </fieldset>
           </div>
-          <textarea required placeholder="Geef een omschrijving van de opdracht" className="input min-h-[80px]" />
-          <div>
-            <label className="block font-semibold text-primary-dark mb-1">Upload foto’s van wat er moet gebeuren</label>
-            <input ref={fileInput} type="file" multiple className="block" />
+
+          <label className="quote-label quote-grid-gap-top" htmlFor="quote-message">Je bericht *</label>
+          <textarea id="quote-message" required placeholder="Noteer hier je vragen of opmerkingen." className="input quote-textarea" />
+
+          <label className="quote-consent">
+            <input type="checkbox" required />
+            Ik ga ermee akkoord dat de ingevoerde informatie gebruikt zal worden om mij te contacteren.
+          </label>
+
+          <div className="quote-upload">
+            <label className="quote-label" htmlFor="quote-files">Upload foto's van wat er moet gebeuren</label>
+            <input id="quote-files" ref={fileInput} type="file" multiple />
           </div>
-          <button type="submit" className="mt-4 px-8 py-3 rounded-full bg-primary text-white font-semibold shadow hover:bg-primary-dark transition-colors duration-200">
-            Stuur offerte
+
+          <button type="submit" className="quote-submit-btn">
+            Verstuur bericht
           </button>
         </form>
       </div>

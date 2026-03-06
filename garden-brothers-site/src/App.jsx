@@ -10,7 +10,8 @@ import Portfolio from "./components/Portfolio";
 import FAQ from "./components/FAQ";
 import QuoteForm from "./components/QuoteForm";
 import Footer from "./components/Footer";
-import AdviceTips from "./components/AdviceTips";
+import WieZijnWij from "./components/WieZijnWij";
+import ContactPage from "./components/ContactPage";
 
 function HomePage() {
   return (
@@ -18,11 +19,13 @@ function HomePage() {
       <Hero />
       <Services />
       <Portfolio />
-      <AdviceTips />
       <FAQ />
-      <QuoteForm />
     </>
   );
+}
+
+function WieZijnWijPage() {
+  return <WieZijnWij />;
 }
 
 function ServicesPage() {
@@ -34,6 +37,14 @@ function ServicesPage() {
   );
 }
 
+function ContactRoutePage() {
+  return <ContactPage />;
+}
+
+function OfferteRoutePage() {
+  return <QuoteForm />;
+}
+
 function App() {
   return (
     <div className="font-sans bg-[#f7f6f3] text-primary-dark">
@@ -42,6 +53,9 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/diensten" element={<ServicesPage />} />
+          <Route path="/wie-zijn-wij" element={<WieZijnWijPage />} />
+          <Route path="/contact" element={<ContactRoutePage />} />
+          <Route path="/offerte" element={<OfferteRoutePage />} />
         </Routes>
       </main>
       <Footer />

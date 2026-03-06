@@ -34,9 +34,9 @@ export default function Footer() {
             <ul className="footer-links-list">
               <li><a href="/" className="footer-link">Home</a></li>
               <li><a href="/diensten" className="footer-link">Diensten</a></li>
-              <li><a href="#portfolio" className="footer-link">Portfolio</a></li>
-              <li><a href="#quote" className="footer-link">Offerte</a></li>
-              <li><a href="#contact" className="footer-link">Contact</a></li>
+              <li><a href="/#portfolio" className="footer-link">Portfolio</a></li>
+              <li><a href="/offerte" className="footer-link">Offerte</a></li>
+              <li><a href="/contact" className="footer-link">Contact</a></li>
             </ul>
           </div>
           <div className="footer-column">
