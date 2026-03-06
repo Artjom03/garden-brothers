@@ -45,9 +45,27 @@ function ServiceList({ title, items }) {
 
 export default function DetailedServices() {
   return (
-    <section className="detailed-services-section" id="detailed-services">
+    <section className="detailed-services-section" id="diensten">
       <div className="container">
-        <h2 className="detailed-services-title">Uitgebreide Diensten</h2>
+        <h2 className="detailed-services-title">Onze diensten in detail</h2>
+        <div className="dienst-details-intro">
+          <article id="dienst-algemeen" className="dienst-detail">
+            <h3>Algemeen onderhoud</h3>
+            <p>
+              Van regelmatig snoeien en maaien tot onkruidbestrijding en seizoensonderhoud,
+              wij zorgen ervoor dat uw tuin er altijd op zijn best uitziet. Geniet van een
+              zorgeloze tuin.
+            </p>
+          </article>
+          <article id="dienst-hogedruk" className="dienst-detail">
+            <h3>Hogedrukreiniging</h3>
+            <p>
+              Droomt u van een propere oprit, terras of gevel? Wij helpen u graag met
+              professionele hogedrukreiniging, zodat uw buitenruimtes er opnieuw schoon en
+              verzorgd uitzien.
+            </p>
+          </article>
+        </div>
         <div className="detailed-services-cards">
           <ServiceList title="Basis Tuinonderhoud" items={basic} />
           <ServiceList title="Reinigingswerken" items={cleaning} />

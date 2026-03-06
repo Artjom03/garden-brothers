@@ -1,15 +1,10 @@
 import React from "react";
 
-const socials = [
-  { href: "https://instagram.com", label: "Instagram" },
-  { href: "https://facebook.com", label: "Facebook" },
-  { href: "https://youtube.com", label: "YouTube" },
-];
-
 const navLinks = [
+  { href: "/", label: "Home" },
   { href: "#about", label: "Wie zijn Wij?" },
   { href: "#portfolio", label: "Portfolio" },
-  { href: "#services", label: "Diensten" },
+  { href: "/diensten", label: "Diensten" },
   { href: "#quote", label: "Gratis Offerte" },
   { href: "#contact", label: "Contact" },
 ];
@@ -18,7 +13,14 @@ export default function Navbar() {
   return (
     <header className="navbar-header">
       <nav className="navbar-container">
-        <div className="navbar-logo">GARDEN BROTHERS</div>
+        <div className="navbar-logo">
+          <img
+            src="/logo.jpeg"
+            alt="Garden Brothers logo"
+            className="navbar-logo-img"
+          />
+          <span>GARDEN BROTHERS</span>
+        </div>
         <ul className="navbar-links">
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -26,20 +28,6 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <div className="navbar-socials">
-          {socials.map(({ href, label }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
-              className="navbar-social-link"
-            >
-              {label}
-            </a>
-          ))}
-        </div>
       </nav>
     </header>
   );
