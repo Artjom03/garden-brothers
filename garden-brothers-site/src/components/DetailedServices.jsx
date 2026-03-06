@@ -30,9 +30,14 @@ const extra = [
   "Eenmalige grote opkuis",
 ];
 
-function ServiceList({ title, items }) {
+function ServiceList({ title, items, imgSrc, imgAlt }) {
   return (
     <div className="detailed-service-card">
+      {imgSrc && (
+        <div className="detailed-service-image">
+          <img src={imgSrc} alt={imgAlt || title} />
+        </div>
+      )}
       <h3 className="detailed-service-title">{title}</h3>
       <ul className="detailed-service-list">
         {items.map((item) => (
@@ -48,28 +53,25 @@ export default function DetailedServices() {
     <section className="detailed-services-section" id="diensten">
       <div className="container">
         <h2 className="detailed-services-title">Onze diensten in detail</h2>
-        <div className="dienst-details-intro">
-          <article id="dienst-algemeen" className="dienst-detail">
-            <h3>Algemeen onderhoud</h3>
-            <p>
-              Van regelmatig snoeien en maaien tot onkruidbestrijding en seizoensonderhoud,
-              wij zorgen ervoor dat uw tuin er altijd op zijn best uitziet. Geniet van een
-              zorgeloze tuin.
-            </p>
-          </article>
-          <article id="dienst-hogedruk" className="dienst-detail">
-            <h3>Hogedrukreiniging</h3>
-            <p>
-              Droomt u van een propere oprit, terras of gevel? Wij helpen u graag met
-              professionele hogedrukreiniging, zodat uw buitenruimtes er opnieuw schoon en
-              verzorgd uitzien.
-            </p>
-          </article>
-        </div>
         <div className="detailed-services-cards">
-          <ServiceList title="Basis Tuinonderhoud" items={basic} />
-          <ServiceList title="Reinigingswerken" items={cleaning} />
-          <ServiceList title="Extra Diensten" items={extra} />
+          <ServiceList
+            title="Basis Tuinonderhoud"
+            items={basic}
+            imgSrc="/basis tuinonderhoud.jfif"
+            imgAlt="Basis tuinonderhoud"
+          />
+          <ServiceList
+            title="Reinigingswerken"
+            items={cleaning}
+            imgSrc="/rijnigingswerken.jpg"
+            imgAlt="Reinigingswerken"
+          />
+          <ServiceList
+            title="Extra Diensten"
+            items={extra}
+            imgSrc="/extra diensten.jpeg"
+            imgAlt="Extra diensten"
+          />
         </div>
       </div>
     </section>

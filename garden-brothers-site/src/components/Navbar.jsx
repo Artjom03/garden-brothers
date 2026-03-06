@@ -2,11 +2,11 @@ import React from "react";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "#about", label: "Wie zijn Wij?" },
-  { href: "#portfolio", label: "Portfolio" },
+  { href: "/#about", label: "Wie zijn Wij?" },
+  { href: "/#portfolio", label: "Portfolio" },
   { href: "/diensten", label: "Diensten" },
-  { href: "#quote", label: "Gratis Offerte" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#quote", label: "Gratis Offerte" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
