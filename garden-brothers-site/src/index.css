@@ -1,0 +1,86 @@
+
+
+/* Basis CSS reset en kleuren voor Garden Brothers */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #4B6043;
+  --primary-dark: #2E3D27;
+  --primary-light: #7A8F6A;
+  --secondary: #8B5E3C;
+  --secondary-dark: #5C3B1E;
+  --secondary-light: #B88C6A;
+  --bg: #f7f6f3;
+  --text: #2E3D27;
+  --font: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Optional overrides */
+  color: #213547;
+  background-color: #ffffff;
+}
+
+/* Tailwind utility for form inputs */
+.input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(209, 213, 219, 1); /* substitute for border-primary-light */
+  border-radius: 0.375rem;
+  background-color: #ffffff;
+  color: #0f172a; /* substitute for text-primary-dark */
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input::placeholder {
+  color: rgba(148, 163, 184, 1); /* substitute for placeholder:text-primary-light */
+}
+
+.input:focus {
+  outline: none;
+  border-color: rgba(116, 123, 255, 1); /* substitute for focus ring color */
+  box-shadow: 0 0 0 6px rgba(116, 123, 255, 0.6); /* approximate focus:ring-2 focus:ring-primary/60 */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f6f3;
+  color: #2E3D27;
+}
+
+a {
+  font-weight: 500;
+}
+
+a:hover {
+  color: #747bff;
+}
+
+button {
+  background-color: #f9f9f9;
+}
