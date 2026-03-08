@@ -10,7 +10,10 @@ export default function QuoteForm() {
     const form = event.currentTarget;
 
     if (!form.checkValidity()) {
-      form.reportValidity();
+      const firstInvalidField = form.querySelector(":invalid");
+      if (firstInvalidField instanceof HTMLElement) {
+        firstInvalidField.focus();
+      }
       setSubmitStatus({ type: "error", message: "Controleer je gegevens en probeer opnieuw." });
       return;
     }
