@@ -12,6 +12,7 @@ import QuoteForm from "./components/QuoteForm";
 import Footer from "./components/Footer";
 import WieZijnWij from "./components/WieZijnWij";
 import ContactPage from "./components/ContactPage";
+import PageHero from "./components/PageHero";
 
 function HomePage() {
   return (
@@ -25,24 +26,75 @@ function HomePage() {
 }
 
 function WieZijnWijPage() {
-  return <WieZijnWij />;
+  return (
+    <>
+      <PageHero
+        title="Over ons"
+        subtitle="Maak kennis met Garden Brothers en onze manier van werken."
+      />
+      <WieZijnWij />
+    </>
+  );
 }
 
 function ServicesPage() {
   return (
     <>
-      <Hero />
+      <PageHero
+        title="Diensten"
+        subtitle="Een overzicht van onze professionele tuin- en reinigingswerken."
+      />
       <DetailedServices />
     </>
   );
 }
 
+function RealisatiesPage() {
+  return (
+    <>
+      <PageHero
+        title="Realisaties"
+        subtitle="Bekijk voorbeelden van onze before/after projecten."
+      />
+      <Portfolio />
+    </>
+  );
+}
+
+function FAQPage() {
+  return (
+    <>
+      <PageHero
+        title="Veelgestelde vragen"
+        subtitle="Hier vind je heldere antwoorden op de meest voorkomende vragen."
+      />
+      <FAQ />
+    </>
+  );
+}
+
 function ContactRoutePage() {
-  return <ContactPage />;
+  return (
+    <>
+      <PageHero
+        title="Contact"
+        subtitle="Neem contact op voor vragen of een vrijblijvende afspraak."
+      />
+      <ContactPage />
+    </>
+  );
 }
 
 function OfferteRoutePage() {
-  return <QuoteForm />;
+  return (
+    <>
+      <PageHero
+        title="Gratis offerte"
+        subtitle="Vraag in enkele stappen je offerte op maat aan."
+      />
+      <QuoteForm />
+    </>
+  );
 }
 
 function App() {
@@ -53,6 +105,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/diensten" element={<ServicesPage />} />
+          <Route path="/realisaties" element={<RealisatiesPage />} />
+          <Route path="/faq" element={<FAQPage />} />
           <Route path="/wie-zijn-wij" element={<WieZijnWijPage />} />
           <Route path="/contact" element={<ContactRoutePage />} />
           <Route path="/offerte" element={<OfferteRoutePage />} />

@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/wie-zijn-wij", label: "Wie zijn Wij?" },
   { href: "/diensten", label: "Diensten" },
-  { href: "/offerte", label: "Gratis Offerte" },
+  { href: "/wie-zijn-wij", label: "Over ons" },
+  { href: "/realisaties", label: "Realisaties" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/offerte", label: "Offerte" },
   { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header className="navbar-header">
       <nav className="navbar-container">
@@ -20,10 +24,29 @@ export default function Navbar() {
           />
           <span>GARDEN BROTHERS</span>
         </div>
-        <ul className="navbar-links">
+
+        <button
+          type="button"
+          className="navbar-toggle"
+          aria-label="Open menu"
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+        >
+          <span className="navbar-toggle-bar" />
+          <span className="navbar-toggle-bar" />
+          <span className="navbar-toggle-bar" />
+        </button>
+
+        <ul className={`navbar-links${isMenuOpen ? " open" : ""}`}>
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="navbar-link">{link.label}</a>
+              <a
+                href={link.href}
+                className="navbar-link"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.label}
+              </a>
             </li>
           ))}
         </ul>
