@@ -1,12 +1,75 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 export default function QuoteForm() {
   const fileInput = useRef();
+  const [submitStatus, setSubmitStatus] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const form = event.currentTarget;
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      setSubmitStatus({ type: "error", message: "Controleer je gegevens en probeer opnieuw." });
+      return;
+    }
+
+    const payload = {
+      formType: "offerte",
+      data: {
+        name: form["quote-firstname"].value,
+        address: form["quote-address"].value,
+        phone: form["quote-phone"].value,
+        email: form["quote-email"].value,
+        subject: form["quote-subject"].value,
+        sector: form.elements["sector"]?.value,
+        size: form.elements["grootte"]?.value,
+        message: form["quote-message"].value,
+        hasFiles: Boolean(fileInput.current?.files?.length),
+      },
+    };
+
+    try {
+      setIsSubmitting(true);
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.ok) {
+        setSubmitStatus({
+          type: "error",
+          message: result?.message || "Verzenden is mislukt. Probeer het opnieuw.",
+        });
+        return;
+      }
+
+      setSubmitStatus({
+        type: "success",
+        message: "Je offerteaanvraag is verzonden. We nemen snel contact op.",
+      });
+      form.reset();
+    } catch {
+      setSubmitStatus({ type: "error", message: "Netwerkfout. Probeer later opnieuw." });
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <section id="quote" className="quote-section">
       <div className="container quote-container">
-        <form className="quote-form">
+        <form className="quote-form" onSubmit={handleSubmit} noValidate>
           <h2 className="quote-title">Vraag gratis offerte aan</h2>
+          {submitStatus && (
+            <div className={`form-status ${submitStatus.type}`} role="status" aria-live="polite">
+              {submitStatus.message}
+            </div>
+          )}
           <div className="quote-grid">
             <div>
               <label className="quote-label" htmlFor="quote-firstname">Naam *</label>
@@ -58,8 +121,8 @@ export default function QuoteForm() {
             <input id="quote-files" ref={fileInput} type="file" multiple />
           </div>
 
-          <button type="submit" className="quote-submit-btn">
-            Verstuur bericht
+          <button type="submit" className="quote-submit-btn" disabled={isSubmitting}>
+            {isSubmitting ? "Versturen..." : "Verstuur bericht"}
           </button>
         </form>
       </div>

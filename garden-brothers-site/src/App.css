@@ -477,6 +477,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+  color: #1f3127;
 }
 .quote-radio-label {
   display: flex;
@@ -491,6 +492,11 @@
 .quote-form .input {
   background: rgba(245, 250, 245, 0.85);
   border: 1px solid #d8e4d5;
+  color: #111111;
+}
+.quote-form .input::placeholder {
+  color: #5a6c61;
+  opacity: 1;
 }
 .quote-textarea {
   min-height: 130px;
@@ -501,6 +507,7 @@
 }
 .quote-upload input[type="file"] {
   margin-top: 0.4rem;
+  color: #111111;
 }
 .quote-consent {
   display: flex;
@@ -508,6 +515,9 @@
   gap: 0.6rem;
   margin-top: 1rem;
   color: var(--primary-dark);
+}
+.quote-consent input[type="checkbox"] {
+  margin-top: 0.2rem;
 }
 .quote-submit-btn {
   margin-top: 1rem;
@@ -526,6 +536,10 @@
 }
 .quote-submit-btn:hover {
   background: #bf8d27;
+}
+.quote-submit-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
 }
 @media (max-width: 780px) {
   .quote-grid {
@@ -1034,10 +1048,17 @@ label {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+  color: #1f3127;
 }
 .contact-form-card input,
 .contact-form-card textarea {
   background: rgba(245, 249, 245, 0.92);
+  color: #111111;
+}
+.contact-form-card input::placeholder,
+.contact-form-card textarea::placeholder {
+  color: #5a6c61;
+  opacity: 1;
 }
 .contact-form-card textarea {
   min-height: 120px;
@@ -1048,6 +1069,10 @@ label {
   gap: 0.6rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  color: #1f3127;
+}
+.contact-consent input[type="checkbox"] {
+  margin-top: 0.2rem;
 }
 .contact-submit-btn {
   width: 100%;
@@ -1061,6 +1086,40 @@ label {
 }
 .contact-submit-btn:hover {
   background: #be8d28;
+}
+.contact-submit-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+/* Shared submit status bar */
+.form-status {
+  border-radius: 0.5rem;
+  padding: 0.7rem 0.85rem;
+  margin-bottom: 0.9rem;
+  font-weight: 600;
+}
+.form-status.success {
+  background: #e7f7ea;
+  border: 1px solid #74b37a;
+  color: #1f5e2a;
+}
+.form-status.error {
+  background: #fdeaea;
+  border: 1px solid #d97575;
+  color: #7a1e1e;
+}
+
+/* Prevent browser autofill from turning text white */
+.quote-form input:-webkit-autofill,
+.quote-form input:-webkit-autofill:hover,
+.quote-form input:-webkit-autofill:focus,
+.contact-form-card input:-webkit-autofill,
+.contact-form-card input:-webkit-autofill:hover,
+.contact-form-card input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #111111;
+  box-shadow: 0 0 0 1000px rgba(245, 249, 245, 0.95) inset;
+  transition: background-color 9999s ease-in-out 0s;
 }
 @media (max-width: 960px) {
   .contact-page-grid {

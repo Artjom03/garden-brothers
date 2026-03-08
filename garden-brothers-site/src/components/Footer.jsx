@@ -19,8 +19,8 @@ export default function Footer() {
               </li>
               <li>
                 <span className="footer-list-label">Email:</span>
-                <a href="mailto:gardenbrothersBE@gmail.com" className="footer-link">
-                  gardenbrothersBE@gmail.com
+                <a href="mailto:info@gardenbrothersbe.com" className="footer-link">
+                  info@gardenbrothersbe.com
                 </a>
               </li>
               <li>
