@@ -24,6 +24,11 @@
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   background: #e0f2e9;
+  transform: scale(1);
+  transition: transform 0.45s ease;
+}
+.advice-card:hover .advice-card-img {
+  transform: scale(1.06);
 }
 .advice-card-label {
   padding: 1.2em 1.3em 1.1em 1.3em;
@@ -261,6 +266,11 @@
   border-radius: 1em;
   padding: 1em;
   box-shadow: 0 8px 24px rgba(44, 62, 80, 0.10);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.portfolio-beforeafter:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(44, 62, 80, 0.16);
 }
 .portfolio-before, .portfolio-after {
   width: 100%;
@@ -273,6 +283,12 @@
   font-weight: 600;
   letter-spacing: 0.03em;
   border: 2px dashed rgba(46, 61, 39, 0.4);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.portfolio-beforeafter:hover .portfolio-before,
+.portfolio-beforeafter:hover .portfolio-after {
+  transform: scale(1.02);
+  border-color: rgba(46, 61, 39, 0.66);
 }
 .portfolio-before {
   background: rgba(184, 140, 106, 0.25);
@@ -386,15 +402,26 @@
   border-radius: 1.5rem;
   box-shadow: 0 18px 45px rgba(44, 62, 80, 0.18);
   overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.service-feature:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 48px rgba(44, 62, 80, 0.24);
 }
 .service-feature-image {
   position: relative;
   min-height: 260px;
+  overflow: hidden;
 }
 .service-feature-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.45s ease;
+}
+.service-feature:hover .service-feature-image img {
+  transform: scale(1.08);
 }
 .service-feature-content {
   padding: 2.2rem 2.4rem;
@@ -699,6 +726,7 @@ footer .footer-copyright {
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: heroFadeUp 0.7s ease both;
 }
 .hero-title {
   font-size: 2.2rem;
@@ -715,6 +743,7 @@ footer .footer-copyright {
 .hero-cta {
   margin-top: 0.5em;
   box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+  animation: heroCtaPop 0.9s ease 0.25s both;
 }
 @media (max-width: 768px) {
   .hero-section {
@@ -753,6 +782,10 @@ footer .footer-copyright {
   border-radius: 999px;
   object-fit: cover;
   box-shadow: 0 0 0 2px #ffffff;
+  transition: transform 0.25s ease;
+}
+.navbar-logo:hover .navbar-logo-img {
+  transform: rotate(-7deg) scale(1.06);
 }
 .navbar-links {
   display: flex;
@@ -785,9 +818,25 @@ footer .footer-copyright {
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s;
+  position: relative;
+}
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.18rem;
+  width: 100%;
+  height: 2px;
+  background: var(--secondary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
 }
 .navbar-link:hover {
   color: var(--secondary);
+}
+.navbar-link:hover::after {
+  transform: scaleX(1);
 }
 .navbar-socials {
   display: flex;
@@ -955,10 +1004,15 @@ button, .btn {
   padding: 0.75em 2em;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.2s ease, box-shadow 0.2s ease;
 }
 button:hover, .btn:hover {
   background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(35, 53, 32, 0.2);
+}
+button:active, .btn:active {
+  transform: translateY(0);
 }
 
 input, textarea, select {
@@ -1003,6 +1057,12 @@ label {
   border-radius: 1rem;
   box-shadow: 0 10px 30px rgba(44, 62, 80, 0.12);
   padding: 1.7rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.contact-info-card:hover,
+.contact-form-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(44, 62, 80, 0.16);
 }
 .contact-page-title {
   font-size: 2.2rem;
@@ -1033,6 +1093,46 @@ label {
   height: 260px;
   border: 0;
   display: block;
+}
+
+.detailed-service-image {
+  overflow: hidden;
+}
+.detailed-service-image img {
+  transition: transform 0.45s ease;
+}
+.detailed-service-card:hover .detailed-service-image img {
+  transform: scale(1.07);
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroCtaPop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
 .contact-form-grid {
   display: grid;
