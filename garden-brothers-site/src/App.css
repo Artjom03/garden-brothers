@@ -806,12 +806,29 @@ footer .footer-copyright {
   flex-direction: column;
   gap: 0.25rem;
   padding: 0;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.navbar-toggle:hover {
+  background: #f7fbf7;
+  border-color: #b8cfb5;
+  box-shadow: 0 6px 16px rgba(46, 61, 39, 0.16);
 }
 .navbar-toggle-bar {
   width: 20px;
   height: 2px;
   border-radius: 99px;
   background: var(--primary-dark);
+  transform-origin: center;
+  transition: transform 0.24s ease, opacity 0.2s ease;
+}
+.navbar-toggle.open .navbar-toggle-bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.navbar-toggle.open .navbar-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+.navbar-toggle.open .navbar-toggle-bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 .navbar-link {
   color: var(--primary-dark);
@@ -869,17 +886,20 @@ footer .footer-copyright {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0;
-    margin: 0;
+    gap: 0.35rem;
+    margin: 0.4rem 0 0 0;
+    padding: 0.45rem;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    border-top: 1px solid #dde8db;
-    background: rgba(255, 255, 255, 0.98);
-    transition: max-height 0.25s ease, opacity 0.2s ease;
+    border: 1px solid #d7e4d5;
+    border-radius: 0.95rem;
+    background: linear-gradient(180deg, rgba(248, 252, 248, 0.98) 0%, rgba(242, 248, 241, 0.98) 100%);
+    box-shadow: 0 14px 28px rgba(33, 53, 35, 0.14);
+    transition: max-height 0.28s ease, opacity 0.22s ease;
   }
   .navbar-links.open {
-    max-height: 360px;
+    max-height: 430px;
     opacity: 1;
   }
   .navbar-links li {
@@ -888,8 +908,24 @@ footer .footer-copyright {
   .navbar-link {
     display: block;
     width: 100%;
-    padding: 0.8rem 0.2rem;
-    border-bottom: 1px solid #eef3ed;
+    padding: 0.78rem 0.9rem;
+    border-bottom: 1px solid #e5eee4;
+    border-radius: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #233523;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+  .navbar-links li:last-child .navbar-link {
+    border-bottom: none;
+  }
+  .navbar-link::after {
+    display: none;
+  }
+  .navbar-link:hover {
+    background: rgba(122, 143, 106, 0.16);
+    color: #1f3321;
+    transform: translateX(3px);
   }
 }
 
