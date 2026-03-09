@@ -38,17 +38,20 @@ export default function Navbar() {
         </button>
 
         <ul className={`navbar-links${isMenuOpen ? " open" : ""}`}>
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="navbar-link"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {navLinks.map((link) => {
+            const isOfferte = link.href === "/offerte";
+            return (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className={`navbar-link${isOfferte ? " navbar-link-cta" : ""}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </nav>
     </header>
