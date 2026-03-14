@@ -19,22 +19,24 @@ export default function Portfolio() {
         <p className="portfolio-subtext">
           Elk van deze projecten toont onze toewijding aan kwaliteit, aandacht voor detail en de expertise die we in elke tuin leggen. Ontdek hier de diversiteit van ons werk.
         </p>
-        <div className="portfolio-beforeafter-legend" aria-hidden="true">
-          <span>BEFORE</span>
-          <span>AFTER</span>
-        </div>
-        <div className="portfolio-marquee-wrap">
-          <div className="portfolio-marquee-track">
-            {marqueeItems.map((project, index) => (
-              <div className="portfolio-beforeafter" key={project + "-" + index}>
-                <div className="portfolio-before">
-                  <span>Project {project} foto</span>
+        <div className="portfolio-beforeafter-row">
+          <div className="portfolio-beforeafter-legend" aria-hidden="true">
+            <span>BEFORE</span>
+            <span>AFTER</span>
+          </div>
+          <div className="portfolio-marquee-wrap">
+            <div className="portfolio-marquee-track">
+              {marqueeItems.map((project, index) => (
+                <div className="portfolio-beforeafter" key={project + "-" + index}>
+                  <div className="portfolio-before">
+                    <span>Project {project} foto</span>
+                  </div>
+                  <div className="portfolio-after">
+                    <span>Project {project} foto</span>
+                  </div>
                 </div>
-                <div className="portfolio-after">
-                  <span>Project {project} foto</span>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
         <div className="portfolio-outro">
