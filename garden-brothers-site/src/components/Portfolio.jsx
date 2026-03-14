@@ -4,6 +4,8 @@ import React from "react";
 const placeholderProjects = [1, 2, 3];
 
 export default function Portfolio() {
+  const marqueeItems = [...placeholderProjects, ...placeholderProjects];
+
   return (
     <section id="portfolio" className="portfolio-section">
       <div className="container">
@@ -21,17 +23,19 @@ export default function Portfolio() {
           <span>BEFORE</span>
           <span>AFTER</span>
         </div>
-        <div className="portfolio-grid">
-          {placeholderProjects.map((project) => (
-            <div className="portfolio-beforeafter" key={project}>
-              <div className="portfolio-before">
-                <span>Project {project} foto</span>
+        <div className="portfolio-marquee-wrap">
+          <div className="portfolio-marquee-track">
+            {marqueeItems.map((project, index) => (
+              <div className="portfolio-beforeafter" key={project + "-" + index}>
+                <div className="portfolio-before">
+                  <span>Project {project} foto</span>
+                </div>
+                <div className="portfolio-after">
+                  <span>Project {project} foto</span>
+                </div>
               </div>
-              <div className="portfolio-after">
-                <span>Project {project} foto</span>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
         <div className="portfolio-outro">
           Geïnspireerd geraakt door onze projecten? Bij Garden Brothers staan we klaar om ook jouw tuin om te toveren tot een plek waar je volop kunt genieten. Wij leveren kwaliteit, stiptheid en eerlijke prijzen, zodat jij straks kunt genieten van je perfect onderhouden tuin.

@@ -57,48 +57,70 @@ export default function ContactPage() {
 
   return (
     <section className="contact-page" id="contact-page">
-      <div className="container contact-page-grid">
-        <form className="contact-form-card" onSubmit={handleSubmit} noValidate>
-          <h2 className="contact-page-title">Contacteer ons</h2>
-          {submitStatus && (
-            <div className={`form-status ${submitStatus.type}`} role="status" aria-live="polite">
-              {submitStatus.message}
+      <div className="container">
+        <div className="contact-page-header">
+          <h2 className="contact-page-title">Contact</h2>
+          <p className="contact-page-text">
+            Heb je vragen of wil je meer informatie? Stuur ons gerust een bericht.
+            Je mag ons altijd mailen, telefonisch zijn we bereikbaar van 9u tot 18u.
+          </p>
+        </div>
+        <div className="contact-page-grid">
+          <div className="contact-info-column">
+            <div className="contact-info-card">
+              <h3 className="contact-info-title">Contactgegevens</h3>
+              <ul className="contact-info-list">
+                <li><strong>Adres</strong><br />Regio Oost-Vlaanderen &amp; Antwerpen</li>
+                <li><strong>Telefoon</strong><br />+32 472 69 66 71<br /><span className="contact-info-note">Telefonisch bereikbaar van 9u tot 18u.</span></li>
+                <li><strong>E-mail</strong><br /><a href="mailto:info@gardenbrothersbe.com">info@gardenbrothersbe.com</a></li>
+              </ul>
             </div>
-          )}
-          <div className="contact-form-grid">
-            <div>
-              <label className="contact-label" htmlFor="contact-name">Naam *</label>
-              <input id="contact-name" type="text" placeholder="Vul hier je naam in." required />
-            </div>
-            <div>
-              <label className="contact-label" htmlFor="contact-address">Adres</label>
-              <input id="contact-address" type="text" placeholder="Vul hier je adres in." />
-            </div>
-            <div>
-              <label className="contact-label" htmlFor="contact-phone">Telefoon</label>
-              <input id="contact-phone" type="tel" placeholder="Vul hier je telefoonnummer in." />
-            </div>
-            <div>
-              <label className="contact-label" htmlFor="contact-email">E-mail *</label>
-              <input id="contact-email" type="email" placeholder="Vul hier je e-mailadres in." required />
-            </div>
-            <div className="contact-span-2">
-              <label className="contact-label" htmlFor="contact-subject">Onderwerp *</label>
-              <input id="contact-subject" type="text" placeholder="Waarmee kunnen wij je helpen?" required />
-            </div>
-            <div className="contact-span-2">
-              <label className="contact-label" htmlFor="contact-message">Je bericht *</label>
-              <textarea id="contact-message" placeholder="Noteer hier je vragen of opmerkingen." required />
+            <div className="contact-info-card">
+              <h3 className="contact-info-title">Openingstijden</h3>
+              <p className="contact-page-text">
+                Telefonisch bereikbaar op werkdagen van 9u tot 18u.
+                Per e-mail mag je ons altijd contacteren, we antwoorden zo snel mogelijk.
+              </p>
             </div>
           </div>
-          <label className="contact-consent">
-            <input type="checkbox" required />
-            Ik ga ermee akkoord dat de ingevoerde informatie gebruikt zal worden om mij te contacteren.
-          </label>
-          <button type="submit" className="contact-submit-btn" disabled={isSubmitting}>
-            {isSubmitting ? "Versturen..." : "Verstuur bericht"}
-          </button>
-        </form>
+          <form className="contact-form-card" onSubmit={handleSubmit} noValidate>
+            <h3 className="contact-form-title">Stuur ons een bericht</h3>
+            {submitStatus && (
+              <div className={`form-status ${submitStatus.type}`} role="status" aria-live="polite">
+                {submitStatus.message}
+              </div>
+            )}
+            <div className="contact-form-grid">
+              <div>
+                <label className="contact-label" htmlFor="contact-name">Naam *</label>
+                <input id="contact-name" type="text" placeholder="Vul hier je naam in." required />
+              </div>
+              <div>
+                <label className="contact-label" htmlFor="contact-email">E-mail *</label>
+                <input id="contact-email" type="email" placeholder="Vul hier je e-mailadres in." required />
+              </div>
+              <div>
+                <label className="contact-label" htmlFor="contact-phone">Telefoon</label>
+                <input id="contact-phone" type="tel" placeholder="Optioneel, handig bij snelle vragen." />
+              </div>
+              <div>
+                <label className="contact-label" htmlFor="contact-subject">Onderwerp *</label>
+                <input id="contact-subject" type="text" placeholder="Waarmee kunnen wij je helpen?" required />
+              </div>
+              <div className="contact-span-2">
+                <label className="contact-label" htmlFor="contact-message">Je bericht *</label>
+                <textarea id="contact-message" placeholder="Noteer hier je vragen of opmerkingen." required />
+              </div>
+            </div>
+            <label className="contact-consent">
+              <input type="checkbox" required />
+              Ik ga ermee akkoord dat de ingevoerde informatie gebruikt zal worden om mij te contacteren.
+            </label>
+            <button type="submit" className="contact-submit-btn" disabled={isSubmitting}>
+              {isSubmitting ? "Versturen..." : "Verstuur bericht"}
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   );

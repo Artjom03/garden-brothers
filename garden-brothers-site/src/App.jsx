@@ -8,6 +8,9 @@ import Services from "./components/Services";
 import DetailedServices from "./components/DetailedServices";
 import Portfolio from "./components/Portfolio";
 import FAQ from "./components/FAQ";
+import Steps from "./components/Steps";
+import InstagramSection from "./components/InstagramSection";
+import GoogleReviews from "./components/GoogleReviews";
 import QuoteForm from "./components/QuoteForm";
 import Footer from "./components/Footer";
 import WieZijnWij from "./components/WieZijnWij";
@@ -19,8 +22,9 @@ function HomePage() {
     <>
       <Hero />
       <Services />
-      <Portfolio />
-      <FAQ />
+      <Steps />
+      <InstagramSection />
+      <GoogleReviews />
     </>
   );
 }

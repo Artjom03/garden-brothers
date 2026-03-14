@@ -15,7 +15,7 @@ export default function Footer() {
             <ul className="footer-list">
               <li>
                 <span className="footer-list-label">Telefoon:</span>
-                <span className="footer-list-value">0123 45 67 89</span>
+                <span className="footer-list-value">+32 472 69 66 71</span>
               </li>
               <li>
                 <span className="footer-list-label">Email:</span>

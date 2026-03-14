@@ -22,6 +22,7 @@ const cleaning = [
   "Mos verwijderen van verharding",
   "Vuilbakken & GFT containers reinigen",
   "Dakgoten reinigen",
+  "Bij hogedrukreiniging maken we gebruik van het water van de klant",
 ];
 const extra = [
   "Tuinopruiming bij verkoop woning",

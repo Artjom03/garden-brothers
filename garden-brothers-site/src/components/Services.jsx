@@ -65,9 +65,34 @@ export default function Services() {
               <p className="service-feature-text">
                 Droom je van een propere oprit, terras of gevel? Met professionele
                 hogedrukreiniging maken we verhardingen en buitenruimtes opnieuw schoon en
-                verzorgd, zonder beschadiging van het oppervlak.
+                verzorgd, zonder beschadiging van het oppervlak. Voor deze werken maken we
+                gebruik van het water van de klant.
               </p>
               <Link to="/diensten#dienst-hogedruk" className="btn service-feature-btn">
+                Lees meer
+              </Link>
+            </div>
+          </article>
+          <article className="service-feature">
+            <div className="service-feature-image">
+              <img
+                src="/extra.jpg"
+                alt="Extra diensten"
+              />
+            </div>
+            <div className="service-feature-content">
+              <h3 className="service-feature-title">Extra diensten</h3>
+              <p className="service-feature-text">
+                Naast ons vaste aanbod helpen we je ook graag met eenmalige of specifieke
+                opdrachten.
+              </p>
+              <ul className="service-feature-list">
+                <li>Tuinopruiming bij verkoop woning</li>
+                <li>Leegstaande tuinen onderhouden</li>
+                <li>Vakantie-onderhoud</li>
+                <li>Eenmalige grote opkuis</li>
+              </ul>
+              <Link to="/diensten" className="btn service-feature-btn">
                 Lees meer
               </Link>
             </div>
