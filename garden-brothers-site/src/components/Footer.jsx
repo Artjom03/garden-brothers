@@ -43,9 +43,9 @@ export default function Footer() {
           <div className="footer-column">
             <h3 className="footer-heading">Privacy</h3>
             <ul className="footer-links-list">
-              <li><a href="#" className="footer-link">Privacybeleid</a></li>
-              <li><a href="#" className="footer-link">Cookiebeleid</a></li>
-              <li><a href="#" className="footer-link">Algemene voorwaarden</a></li>
+              <li><a href="/privacybeleid" className="footer-link">Privacybeleid</a></li>
+              <li><a href="/cookiebeleid" className="footer-link">Cookiebeleid</a></li>
+              <li><a href="/algemene-voorwaarden" className="footer-link">Algemene voorwaarden</a></li>
             </ul>
           </div>
         </div>

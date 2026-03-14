@@ -16,6 +16,9 @@ import Footer from "./components/Footer";
 import WieZijnWij from "./components/WieZijnWij";
 import ContactPage from "./components/ContactPage";
 import PageHero from "./components/PageHero";
+import LegalData from "./components/LegalData";
+import LegalWeb from "./components/LegalWeb";
+import TermsConditions from "./components/TermsConditions";
 
 function HomePage() {
   return (
@@ -101,6 +104,42 @@ function OfferteRoutePage() {
   );
 }
 
+function PrivacyPage() {
+  return (
+    <>
+      <PageHero
+        title="Privacybeleid"
+        subtitle="Lees hoe wij zorgvuldig met jouw persoonsgegevens omgaan."
+      />
+      <LegalData />
+    </>
+  );
+}
+
+function CookiePage() {
+  return (
+    <>
+      <PageHero
+        title="Cookiebeleid"
+        subtitle="Meer informatie over het gebruik van cookies op onze website."
+      />
+      <LegalWeb />
+    </>
+  );
+}
+
+function TermsPage() {
+  return (
+    <>
+      <PageHero
+        title="Algemene voorwaarden"
+        subtitle="De spelregels rond offertes, werken en betalingen."
+      />
+      <TermsConditions />
+    </>
+  );
+}
+
 function App() {
   return (
     <div className="font-sans bg-[#f7f6f3] text-primary-dark">
@@ -114,6 +153,9 @@ function App() {
           <Route path="/wie-zijn-wij" element={<WieZijnWijPage />} />
           <Route path="/contact" element={<ContactRoutePage />} />
           <Route path="/offerte" element={<OfferteRoutePage />} />
+          <Route path="/privacybeleid" element={<PrivacyPage />} />
+          <Route path="/cookiebeleid" element={<CookiePage />} />
+          <Route path="/algemene-voorwaarden" element={<TermsPage />} />
         </Routes>
       </main>
       <Footer />
