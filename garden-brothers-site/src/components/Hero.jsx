@@ -7,15 +7,15 @@ export default function Hero() {
       <div className="hero-inner">
         <div className="hero-content">
           <div className="hero-logo-mark">
-            <img
-              src="/logo.jpeg"
-              alt="Garden Brothers logo"
-              className="hero-logo-img"
-            />
+                  <img
+                    src="/logo.jpeg"
+                    alt="Yard Brothers logo"
+                    className="hero-logo-img"
+                  />
           </div>
           <p className="hero-kicker">Professioneel tuinonderhoud & hogedrukreiniging</p>
           <h1 className="hero-title">
-            <span className="hero-title-main">Garden Brothers</span>
+            <span className="hero-title-main">Yard Brothers</span>
             <span className="hero-title-accent">Vlaanderen</span>
           </h1>
           <p className="hero-slogan">

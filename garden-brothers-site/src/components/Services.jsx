@@ -7,7 +7,7 @@ export default function Services() {
       <div className="container">
         <div className="services-intro-grid">
           <div className="services-intro-text">
-            <h2 className="services-intro-title">Garden Brothers</h2>
+            <h2 className="services-intro-title">Yard Brothers</h2>
             <p className="services-intro-lead">
               Professioneel tuinonderhoud en hogedrukreiniging in Vlaanderen.
             </p>
@@ -18,17 +18,17 @@ export default function Services() {
             </p>
           </div>
           <div className="services-intro-image">
-            <img
-              src="/basis tuinonderhoud.jfif"
-              alt="Garden Brothers aan het werk in een tuin"
-            />
+              <img
+                src="/basis tuinonderhoud.jfif"
+                alt="Yard Brothers aan het werk in een tuin"
+              />
           </div>
         </div>
 
         <div className="services-heading-block">
           <h2 className="services-title">Onze diensten</h2>
           <p className="services-intro">
-            Bij Garden Brothers bieden we een uitgebreid aanbod aan professionele tuindiensten,
+              Bij Yard Brothers bieden we een uitgebreid aanbod aan professionele tuindiensten,
             afgestemd op zowel particulieren als kleine bedrijven. Ontdek hieronder onze
             belangrijkste diensten.
           </p>

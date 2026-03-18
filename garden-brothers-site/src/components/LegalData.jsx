@@ -14,7 +14,7 @@ export default function LegalData() {
 
         <h3>1. Wie is verantwoordelijk voor de verwerking?</h3>
         <p>
-          De verwerkingsverantwoordelijke is <strong>Garden Brothers</strong>, gevestigd
+          De verwerkingsverantwoordelijke is <strong>Yard Brothers</strong>, gevestigd
           op <strong>[ADRES]</strong> met ondernemingsnummer <strong>[BTW_NUMMER]</strong>.
           Voor vragen over dit privacybeleid kan je ons bereiken via
           <strong> info@gardenbrothersbe.com</strong>.

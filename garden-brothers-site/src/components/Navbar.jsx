@@ -19,10 +19,10 @@ export default function Navbar() {
         <div className="navbar-logo">
           <img
             src="/logo.jpeg"
-            alt="Garden Brothers logo"
+            alt="Yard Brothers logo"
             className="navbar-logo-img"
           />
-          <span>GARDEN BROTHERS</span>
+          <span>YARD BROTHERS</span>
         </div>
 
         <button

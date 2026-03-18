@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="footer-column">
             <h3 className="footer-heading">Onze gegevens</h3>
             <p className="footer-text">
-              Garden Brothers is jouw partner voor professioneel tuinonderhoud en
+              Yard Brothers is jouw partner voor professioneel tuinonderhoud en
               hogedrukreiniging in Oost-Vlaanderen &amp; Antwerpen.
             </p>
             <ul className="footer-list">
@@ -62,7 +62,7 @@ export default function Footer() {
             </a>
           </div>
           <div className="footer-copyright">
-            &copy; {new Date().getFullYear()} Garden Brothers. Alle rechten voorbehouden.
+            &copy; {new Date().getFullYear()} Yard Brothers. Alle rechten voorbehouden.
           </div>
         </div>
       </div>

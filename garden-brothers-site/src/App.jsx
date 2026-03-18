@@ -37,7 +37,7 @@ function WieZijnWijPage() {
     <>
       <PageHero
         title="Over ons"
-        subtitle="Maak kennis met Garden Brothers en onze manier van werken."
+        subtitle="Maak kennis met Yard Brothers en onze manier van werken."
       />
       <WieZijnWij />
     </>

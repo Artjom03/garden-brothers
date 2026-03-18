@@ -1520,7 +1520,7 @@ footer .footer-copyright {
   }
 }
 
-/* Garden Brothers - Global Styles */
+/* Yard Brothers - Global Styles */
 :root {
   --primary: #4B6043;
   --primary-dark: #2E3D27;
@@ -1541,6 +1541,8 @@ body {
   padding: 0;
   min-height: 100vh;
   position: relative;
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 body::before {
