@@ -369,9 +369,7 @@
     align-items: stretch;
   }
   .portfolio-marquee-track {
-    animation: none;
-    width: 100%;
-    justify-content: center;
+    animation: portfolioScroll 80s linear infinite;
   }
   .portfolio-beforeafter-legend {
     display: flex;
