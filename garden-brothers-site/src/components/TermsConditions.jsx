@@ -7,7 +7,7 @@ export default function TermsConditions() {
         <h2>Algemene voorwaarden</h2>
         <p>
           Deze algemene voorwaarden zijn van toepassing op alle offertes,
-          overeenkomsten en diensten van <strong>[BEDRIJFSNAAM]</strong> (hierna
+          overeenkomsten en diensten van <strong>Yard Brothers</strong> (hierna
           "wij" of "ons" genoemd), tenzij schriftelijk anders overeengekomen.
         </p>
 
@@ -17,6 +17,8 @@ export default function TermsConditions() {
           hogedrukreiniging. De concrete scope van de werken wordt steeds
           beschreven in de offerte of opdrachtbevestiging.
         </p>
+
+        <p>Ons werkgebied is Vlaanderen.</p>
 
         <h3>2. Offertes en prijzen</h3>
         <ul>
@@ -54,16 +56,25 @@ export default function TermsConditions() {
           </li>
         </ul>
 
-        <h3>4. Annulatie</h3>
+        <h3>4. Annulatievoorwaarden</h3>
         <ul>
           <li>
-            Annulatie door de klant dient zo snel mogelijk en bij voorkeur
-            schriftelijk (e-mail) te gebeuren.
+            Afspraken kunnen kosteloos geannuleerd of verplaatst worden tot 48
+            uur vooraf.
           </li>
           <li>
-            Bij laattijdige annulatie (bijvoorbeeld minder dan 24 uur op voorhand)
-            behouden wij ons het recht voor om een vergoeding aan te rekenen voor
-            de gereserveerde tijd en gemaakte kosten.
+            Bij annulatie minder dan 48 uur voor de geplande afspraak wordt 30%
+            van het afgesproken bedrag aangerekend.
+          </li>
+          <li>
+            Voor grotere opdrachten kan een voorschot gevraagd worden. Dit
+            voorschot kan geheel of gedeeltelijk worden ingehouden bij
+            laattijdige annulatie.
+          </li>
+          <li>
+            Bij slechte weersomstandigheden of wanneer de werken door het weer
+            niet kunnen doorgaan, wordt de afspraak kosteloos verplaatst naar
+            een nieuwe datum.
           </li>
         </ul>
 
@@ -81,6 +92,7 @@ export default function TermsConditions() {
 
         <h3>6. Aansprakelijkheid</h3>
         <ul>
+          <li>Onze onderneming is in het bezit van een BA-verzekering.</li>
           <li>
             Wij voeren onze werken uit met de nodige zorg en volgens de regels
             van de kunst.

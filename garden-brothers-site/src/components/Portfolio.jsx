@@ -1,23 +1,43 @@
-
 import React from "react";
 
-const placeholderProjects = [1, 2, 3];
+const projects = [
+  {
+    id: 1,
+    before: "/before_1.jpg",
+    after: "/after_1.jpg",
+  },
+  {
+    id: 2,
+    before: "/before_2.jpg",
+    after: "/after_2.jpg",
+  },
+  {
+    id: 3,
+    before: "/before_3.jpg",
+    after: "/after_3.jpg",
+  },
+];
 
 export default function Portfolio() {
-  const marqueeItems = [...placeholderProjects, ...placeholderProjects];
+  const marqueeItems = [...projects, ...projects];
 
   return (
     <section id="portfolio" className="portfolio-section">
       <div className="container">
         <h2 className="portfolio-title">onze realisaties</h2>
         <p className="portfolio-intro">
-          Bij Yard Brothers zijn we trots op elk project dat we opleveren. Bekijk hier een selectie van tuinen die we met passie en vakmanschap hebben getransformeerd tot ware groene oases. Ontdek wat wij te bieden hebben en zie hoe wij kunnen bijdragen aan jouw succes en genot van de tuin.
+          Bij Yard Brothers zijn we trots op elk project dat we opleveren. Bekijk
+          hier een selectie van tuinen die we met passie en vakmanschap hebben
+          getransformeerd tot ware groene oases. Ontdek wat wij te bieden hebben
+          en zie hoe wij kunnen bijdragen aan jouw succes en genot van de tuin.
         </p>
         <div className="portfolio-highlight">
           <span>Laat je inspireren door onze groene meesterwerken!</span>
         </div>
         <p className="portfolio-subtext">
-          Elk van deze projecten toont onze toewijding aan kwaliteit, aandacht voor detail en de expertise die we in elke tuin leggen. Ontdek hier de diversiteit van ons werk.
+          Elk van deze projecten toont onze toewijding aan kwaliteit, aandacht
+          voor detail en de expertise die we in elke tuin leggen. Ontdek hier de
+          diversiteit van ons werk.
         </p>
         <div className="portfolio-beforeafter-row">
           <div className="portfolio-beforeafter-legend" aria-hidden="true">
@@ -27,12 +47,21 @@ export default function Portfolio() {
           <div className="portfolio-marquee-wrap">
             <div className="portfolio-marquee-track">
               {marqueeItems.map((project, index) => (
-                <div className="portfolio-beforeafter" key={project + "-" + index}>
+                <div
+                  className="portfolio-beforeafter"
+                  key={project.id + "-" + index}
+                >
                   <div className="portfolio-before">
-                    <span>Project {project} foto</span>
+                    <img
+                      src={project.before}
+                      alt={`Voor: project ${project.id}`}
+                    />
                   </div>
                   <div className="portfolio-after">
-                    <span>Project {project} foto</span>
+                    <img
+                      src={project.after}
+                      alt={`Na: project ${project.id}`}
+                    />
                   </div>
                 </div>
               ))}
@@ -40,7 +69,10 @@ export default function Portfolio() {
           </div>
         </div>
         <div className="portfolio-outro">
-          Geïnspireerd geraakt door onze projecten? Bij Yard Brothers staan we klaar om ook jouw tuin om te toveren tot een plek waar je volop kunt genieten. Wij leveren kwaliteit, stiptheid en eerlijke prijzen, zodat jij straks kunt genieten van je perfect onderhouden tuin.
+          Geïnspireerd geraakt door onze projecten? Bij Yard Brothers staan we
+          klaar om ook jouw tuin om te toveren tot een plek waar je volop kunt
+          genieten. Wij leveren kwaliteit, stiptheid en eerlijke prijzen, zodat
+          jij straks kunt genieten van je perfect onderhouden tuin.
         </div>
         <div className="portfolio-cta">
           <a href="/offerte" className="hero-btn hero-btn-primary">

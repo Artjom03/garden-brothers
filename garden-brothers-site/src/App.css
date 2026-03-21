@@ -332,10 +332,6 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   flex: 0 0 420px;
 }
-.portfolio-beforeafter:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 28px rgba(44, 62, 80, 0.16);
-}
 .portfolio-before, .portfolio-after {
   width: 100%;
   height: 240px;
@@ -355,11 +351,6 @@
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
-}
-.portfolio-beforeafter:hover .portfolio-before,
-.portfolio-beforeafter:hover .portfolio-after {
-  transform: scale(1.02);
-  border-color: rgba(46, 61, 39, 0.66);
 }
 .portfolio-before {
   background: rgba(184, 140, 106, 0.25);

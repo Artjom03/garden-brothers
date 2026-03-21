@@ -10,7 +10,7 @@ import Portfolio from "./components/Portfolio";
 import FAQ from "./components/FAQ";
 import Steps from "./components/Steps";
 import InstagramSection from "./components/InstagramSection";
-import GoogleReviews from "./components/GoogleReviews";
+// import GoogleReviews from "./components/GoogleReviews";
 import QuoteForm from "./components/QuoteForm";
 import Footer from "./components/Footer";
 import WieZijnWij from "./components/WieZijnWij";
@@ -27,7 +27,7 @@ function HomePage() {
       <Services />
       <Steps />
       <InstagramSection />
-      <GoogleReviews />
+      {/* <GoogleReviews /> tijdelijk uitgeschakeld */}
     </>
   );
 }

@@ -8,7 +8,7 @@ export default function Hero() {
         <div className="hero-content">
           <div className="hero-logo-mark">
                   <img
-                    src="/logo.jpeg"
+                    src="/logo.png"
                     alt="Yard Brothers logo"
                     className="hero-logo-img"
                   />

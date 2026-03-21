@@ -18,7 +18,7 @@ export default function Navbar() {
       <nav className="navbar-container">
         <div className="navbar-logo">
           <img
-            src="/logo.jpeg"
+            src="/logo.png"
             alt="Yard Brothers logo"
             className="navbar-logo-img"
           />
