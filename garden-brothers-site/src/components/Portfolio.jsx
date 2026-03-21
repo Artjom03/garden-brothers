@@ -16,6 +16,16 @@ const projects = [
     before: "/before_3.jpg",
     after: "/after_3.jpg",
   },
+  {
+    id: 4,
+    before: "/before_4.jpg",
+    after: "/after_4.jpg",
+  },
+  {
+    id: 5,
+    before: "/before_5.jpg",
+    after: "/after_5.jpg",
+  },
 ];
 
 export default function Portfolio() {
