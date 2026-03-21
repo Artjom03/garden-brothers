@@ -368,6 +368,11 @@
     flex-direction: column;
     align-items: stretch;
   }
+  .portfolio-marquee-track {
+    animation: none;
+    width: 100%;
+    justify-content: center;
+  }
   .portfolio-beforeafter-legend {
     display: flex;
     flex-direction: row;
