@@ -293,6 +293,9 @@
   max-width: 1200px;
   margin: 0 auto 2.3em auto;
 }
+.portfolio-beforeafter-row-mobile {
+  display: none;
+}
 .portfolio-marquee-wrap {
   overflow: hidden;
   margin-bottom: 2em;
@@ -363,13 +366,48 @@
 .portfolio-beforeafter-row {
   gap: 1.8rem;
 }
+.portfolio-mobile-slider {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.portfolio-mobile-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.25rem;
+}
+.portfolio-mobile-arrow {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(46, 61, 39, 0.7);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary-dark);
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.portfolio-mobile-arrow:hover {
+  background: rgba(227, 238, 226, 0.95);
+}
+.portfolio-mobile-counter {
+  font-size: 0.95rem;
+  color: var(--primary-dark);
+}
 @media (max-width: 900px) {
-  .portfolio-beforeafter-row {
+  .portfolio-beforeafter-row-desktop {
+    display: none;
+  }
+  .portfolio-beforeafter-row-mobile {
+    display: flex;
     flex-direction: column;
     align-items: stretch;
-  }
-  .portfolio-marquee-track {
-    animation: portfolioScroll 80s linear infinite;
   }
   .portfolio-beforeafter-legend {
     display: flex;

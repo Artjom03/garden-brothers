@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const projects = [
   {
@@ -20,6 +20,16 @@ const projects = [
 
 export default function Portfolio() {
   const marqueeItems = [...projects, ...projects];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const totalProjects = projects.length;
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + totalProjects) % totalProjects);
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % totalProjects);
+  };
 
   return (
     <section id="portfolio" className="portfolio-section">
@@ -39,7 +49,8 @@ export default function Portfolio() {
           voor detail en de expertise die we in elke tuin leggen. Ontdek hier de
           diversiteit van ons werk.
         </p>
-        <div className="portfolio-beforeafter-row">
+        {/* Desktop: automatische scroll-marquee */}
+        <div className="portfolio-beforeafter-row portfolio-beforeafter-row-desktop">
           <div className="portfolio-beforeafter-legend" aria-hidden="true">
             <span>BEFORE</span>
             <span>AFTER</span>
@@ -65,6 +76,50 @@ export default function Portfolio() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+        {/* Mobiel: slider met pijlen */}
+        <div className="portfolio-beforeafter-row portfolio-beforeafter-row-mobile">
+          <div className="portfolio-beforeafter-legend" aria-hidden="true">
+            <span>BEFORE</span>
+            <span>AFTER</span>
+          </div>
+          <div className="portfolio-mobile-slider">
+            <div className="portfolio-beforeafter">
+              <div className="portfolio-before">
+                <img
+                  src={projects[activeIndex].before}
+                  alt={`Voor: project ${projects[activeIndex].id}`}
+                />
+              </div>
+              <div className="portfolio-after">
+                <img
+                  src={projects[activeIndex].after}
+                  alt={`Na: project ${projects[activeIndex].id}`}
+                />
+              </div>
+            </div>
+            <div className="portfolio-mobile-controls">
+              <button
+                type="button"
+                className="portfolio-mobile-arrow"
+                onClick={handlePrev}
+                aria-label="Vorige realisatie"
+              >
+                &#8249;
+              </button>
+              <span className="portfolio-mobile-counter">
+                {activeIndex + 1} / {totalProjects}
+              </span>
+              <button
+                type="button"
+                className="portfolio-mobile-arrow"
+                onClick={handleNext}
+                aria-label="Volgende realisatie"
+              >
+                &#8250;
+              </button>
             </div>
           </div>
         </div>
