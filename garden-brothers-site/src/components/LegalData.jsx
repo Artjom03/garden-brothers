@@ -14,10 +14,11 @@ export default function LegalData() {
 
         <h3>1. Wie is verantwoordelijk voor de verwerking?</h3>
         <p>
-          De verwerkingsverantwoordelijke is <strong>Yard Brothers</strong>, gevestigd
-          op <strong>[ADRES]</strong> met ondernemingsnummer <strong>[BTW_NUMMER]</strong>.
+          De verwerkingsverantwoordelijke is <strong>YA GROUP VOF</strong>, gevestigd
+          op <strong>Antwerpsesteenweg 129, 2070 Burcht</strong>. Het
+          ondernemingsnummer en btw-nummer zijn momenteel nog niet toegekend.
           Voor vragen over dit privacybeleid kan je ons bereiken via
-          <strong> info@gardenbrothersbe.com</strong>.
+          <strong> info@yagroup.be</strong>.
         </p>
 
         <h3>2. Welke gegevens verwerken wij?</h3>

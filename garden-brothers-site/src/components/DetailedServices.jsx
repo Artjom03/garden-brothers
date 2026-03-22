@@ -14,14 +14,12 @@ const basic = [
 const cleaning = [
   "Terras reinigen (tegels, klinkers, natuursteen)",
   "Oprit reinigen",
-  "Gevel reinigen",
   "Tuinmuren reinigen",
   "Omheining reinigen",
   "Tuinmeubelen reinigen",
   "Verwijderen van groene aanslag",
   "Mos verwijderen van verharding",
   "Vuilbakken & GFT containers reinigen",
-  "Dakgoten reinigen",
   "Bij hogedrukreiniging maken we gebruik van het water van de klant",
 ];
 const extra = [

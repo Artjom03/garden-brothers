@@ -7,8 +7,9 @@ export default function TermsConditions() {
         <h2>Algemene voorwaarden</h2>
         <p>
           Deze algemene voorwaarden zijn van toepassing op alle offertes,
-          overeenkomsten en diensten van <strong>Yard Brothers</strong> (hierna
-          "wij" of "ons" genoemd), tenzij schriftelijk anders overeengekomen.
+          overeenkomsten en diensten van <strong>YA GROUP VOF</strong>, handelend
+          onder de commerciële naam <strong>Yard Brothers</strong> (hierna "wij" of
+          "ons" genoemd), tenzij schriftelijk anders overeengekomen.
         </p>
 
         <h3>1. Diensten</h3>
@@ -82,7 +83,18 @@ export default function TermsConditions() {
         <ul>
           <li>
             Tenzij anders vermeld op de factuur, geldt een betalingstermijn van
-            14 dagen na factuurdatum.
+            14 dagen nadat de factuur werd verstuurd.
+          </li>
+          <li>
+            Bij opdrachten boven de 
+            
+            
+            
+            
+            
+            
+            €1.000,00 vragen wij een voorschot van 20% van het totale bedrag, te
+            betalen voor de start van de werken.
           </li>
           <li>
             Bij niet-tijdige betaling kunnen herinneringskosten en nalatigheids-

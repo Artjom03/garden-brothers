@@ -15,12 +15,12 @@ export default function Footer() {
             <ul className="footer-list">
               <li>
                 <span className="footer-list-label">Telefoon:</span>
-                <span className="footer-list-value">+32 472 69 66 71</span>
+                <span className="footer-list-value">0470 59 69 55</span>
               </li>
               <li>
                 <span className="footer-list-label">Email:</span>
-                <a href="mailto:info@gardenbrothersbe.com" className="footer-link">
-                  info@gardenbrothersbe.com
+                <a href="mailto:info@yardbrothers.be" className="footer-link">
+                  info@yardbrothers.be
                 </a>
               </li>
               <li>

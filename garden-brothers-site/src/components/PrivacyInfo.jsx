@@ -14,10 +14,11 @@ export default function PrivacyInfo() {
 
         <h3>1. Wie is verantwoordelijk voor de verwerking?</h3>
         <p>
-          De verwerkingsverantwoordelijke is <strong>[BEDRIJFSNAAM]</strong>, gevestigd
-          op <strong>[ADRES]</strong> met ondernemingsnummer <strong>[BTW_NUMMER]</strong>.
+          De verwerkingsverantwoordelijke is <strong>YA GROUP VOF</strong>, gevestigd
+          op <strong>Antwerpsesteenweg 129, 2070 Burcht</strong>. Het
+          ondernemingsnummer en btw-nummer zijn momenteel nog niet toegekend.
           Voor vragen over dit privacybeleid kan je ons bereiken via
-          <strong> [E-MAILADRES]</strong>.
+          <strong> info@yagroup.be</strong>.
         </p>
 
         <h3>2. Welke gegevens verwerken wij?</h3>
@@ -121,8 +122,8 @@ export default function PrivacyInfo() {
         </ul>
         <p>
           Je kan deze rechten uitoefenen door ons te contacteren via
-          <strong> [E-MAILADRES]</strong>. We beantwoorden je vraag zo snel mogelijk en
-          uiterlijk binnen de wettelijke termijnen.
+          <strong> info@yagroup.be</strong>. We beantwoorden je vraag zo snel mogelijk
+          en uiterlijk binnen de wettelijke termijnen.
         </p>
 
         <h3>8. Klachten</h3>
