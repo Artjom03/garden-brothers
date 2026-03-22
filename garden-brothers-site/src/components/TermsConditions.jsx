@@ -143,7 +143,7 @@ export default function TermsConditions() {
         <p>
           Op alle overeenkomsten is uitsluitend het Belgische recht van
           toepassing. In geval van betwisting zijn de bevoegde rechtbanken van
-          het gerechtelijk arrondissement waar <strong>[BEDRIJFSNAAM]</strong> gevestigd
+          het gerechtelijk arrondissement waar <strong>YA GROUP VOF</strong> gevestigd
           is, bevoegd.
         </p>
       </div>
