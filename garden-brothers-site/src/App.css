@@ -304,7 +304,6 @@
 .portfolio-marquee-track {
   display: flex;
   gap: 2em;
-  width: max-content;
   animation: portfolioScroll 48s linear infinite;
 }
 .portfolio-beforeafter-legend {

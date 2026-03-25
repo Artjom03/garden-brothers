@@ -11,7 +11,7 @@ const faqCategories = [
       },
       {
         q: "In welke regio werken jullie?",
-        a: "Wij werken in jouw regio en omliggende gemeenten. Bij twijfel kan je ons altijd even contacteren om te kijken of we tot bij jou komen.",
+        a: "Wij werken in de regio Antwerpen en Oost-Vlaanderen. Bij twijfel kan je ons altijd even contacteren om te kijken of we tot bij jou komen.",
       },
       {
         q: "Kan ik een gratis offerte krijgen?",
@@ -91,7 +91,7 @@ const faqCategories = [
     questions: [
       {
         q: "Welke oppervlakken kunnen jullie reinigen?",
-        a: "Wij reinigen onder andere terrassen, opritten, tuinpaden, klinkers, tegels, muren en gevels met professionele hogedrukapparatuur.",
+        a: "Wij reinigen onder andere terrassen, opritten, tuinpaden, klinkers, tegels en muren met professionele hogedrukapparatuur.",
       },
       {
         q: "Verdwijnt groene aanslag volledig?",

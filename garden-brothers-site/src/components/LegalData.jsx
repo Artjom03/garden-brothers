@@ -122,7 +122,7 @@ export default function LegalData() {
         </ul>
         <p>
           Je kan deze rechten uitoefenen door ons te contacteren via
-          <strong> info@gardenbrothersbe.com</strong>. We beantwoorden je vraag zo snel mogelijk en
+          <strong> info@yagroup.be</strong>. We beantwoorden je vraag zo snel mogelijk en
           uiterlijk binnen de wettelijke termijnen.
         </p>
 

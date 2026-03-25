@@ -105,9 +105,9 @@ export default function QuoteForm() {
             </fieldset>
             <fieldset className="quote-fieldset">
               <legend className="quote-legend">Grootte van de grond</legend>
-              <label className="quote-radio-label"><input type="radio" name="grootte" value="onder250" required /> Onder 250 vierkante meter</label>
+              <label className="quote-radio-label"><input type="radio" name="grootte" value="onder250" required /> Minder dan 250 vierkante meter</label>
               <label className="quote-radio-label"><input type="radio" name="grootte" value="250-500" /> 250 a 500 vierkante meter</label>
-              <label className="quote-radio-label"><input type="radio" name="grootte" value="boven500" /> Boven 500 vierkante meter</label>
+              <label className="quote-radio-label"><input type="radio" name="grootte" value="boven500" /> Meer dan 500 vierkante meter</label>
             </fieldset>
           </div>
 

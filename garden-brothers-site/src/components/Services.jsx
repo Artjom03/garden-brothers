@@ -13,7 +13,7 @@ export default function Services() {
             </p>
             <p className="services-intro-body">
               Wij combineren persoonlijke service met vakmanschap. Van het netjes onderhouden
-              van je tuin tot het grondig reinigen van terrassen, opritten en gevels: wij zorgen
+              van je tuin tot het grondig reinigen van terrassen en opritten: wij zorgen
               voor een buitenruimte waar jij zorgeloos van kunt genieten.
             </p>
           </div>
@@ -63,7 +63,7 @@ export default function Services() {
             <div className="service-feature-content">
               <h3 className="service-feature-title">Hogedrukreiniging</h3>
               <p className="service-feature-text">
-                Droom je van een propere oprit, terras of gevel? Met professionele
+                Droom je van een propere oprit of terras? Met professionele
                 hogedrukreiniging maken we verhardingen en buitenruimtes opnieuw schoon en
                 verzorgd, zonder beschadiging van het oppervlak. Voor deze werken maken we
                 gebruik van het water van de klant.

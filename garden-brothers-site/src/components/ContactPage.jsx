@@ -70,9 +70,9 @@ export default function ContactPage() {
             <div className="contact-info-card">
               <h3 className="contact-info-title">Contactgegevens</h3>
               <ul className="contact-info-list">
-                <li><strong>Adres</strong><br />Regio Oost-Vlaanderen &amp; Antwerpen</li>
-                <li><strong>Telefoon</strong><br />+32 472 69 66 71<br /><span className="contact-info-note">Telefonisch bereikbaar van 9u tot 18u.</span></li>
-                <li><strong>E-mail</strong><br /><a href="mailto:info@gardenbrothersbe.com">info@gardenbrothersbe.com</a></li>
+                <li><strong>Werkgebied</strong><br />Regio Antwerpen &amp; Oost-Vlaanderen</li>
+                <li><strong>Telefoon</strong><br />0470 59 69 55<br /><span className="contact-info-note">Telefonisch bereikbaar van 9u tot 18u.</span></li>
+                <li><strong>E-mail</strong><br /><a href="mailto:info@yardbrothers.be">info@yardbrothers.be</a></li>
               </ul>
             </div>
             <div className="contact-info-card">
