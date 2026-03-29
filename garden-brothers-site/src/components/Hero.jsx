@@ -16,7 +16,6 @@ export default function Hero() {
           <p className="hero-kicker">Professioneel tuinonderhoud & hogedrukreiniging</p>
           <h1 className="hero-title">
             <span className="hero-title-main">Yard Brothers</span>
-            <span className="hero-title-accent">Vlaanderen</span>
           </h1>
           <p className="hero-slogan">
             Wij doen het werk, jij geniet van je tuin.

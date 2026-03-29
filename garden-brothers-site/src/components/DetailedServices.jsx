@@ -7,20 +7,20 @@ const basic = [
   "Kantjes afsteken",
   "Bladeren opruimen",
   "Snoeien van struiken",
+  "Heggen & struiken verwijderen",
   "Tuin winterklaar maken",
   "Voorjaarsonderhoud",
   "Afvoeren van groenafval",
 ];
 const cleaning = [
-  "Terras reinigen (tegels, klinkers, natuursteen)",
+  "Terras reinigen",
   "Oprit reinigen",
   "Tuinmuren reinigen",
   "Omheining reinigen",
   "Tuinmeubelen reinigen",
   "Verwijderen van groene aanslag",
   "Mos verwijderen van verharding",
-  "Vuilbakken & GFT containers reinigen",
-  "Bij hogedrukreiniging maken we gebruik van het water van de klant",
+  "Vuilbakken & GFT-containers reinigen",
 ];
 const extra = [
   "Tuinopruiming bij verkoop woning",
@@ -29,7 +29,7 @@ const extra = [
   "Eenmalige grote opkuis",
 ];
 
-function ServiceList({ title, items, imgSrc, imgAlt }) {
+function ServiceList({ title, items, imgSrc, imgAlt, note }) {
   return (
     <div className="detailed-service-card">
       {imgSrc && (
@@ -43,6 +43,7 @@ function ServiceList({ title, items, imgSrc, imgAlt }) {
           <li key={item}>{item}</li>
         ))}
       </ul>
+      {note && <p className="detailed-service-note">{note}</p>}
     </div>
   );
 }
@@ -64,6 +65,7 @@ export default function DetailedServices() {
             items={cleaning}
             imgSrc="/rijnigingswerken.jpg"
             imgAlt="Reinigingswerken"
+            note="Bij hogedrukreiniging maken we gebruik van het water en de elektriciteit van de klant."
           />
           <ServiceList
             title="Extra Diensten"

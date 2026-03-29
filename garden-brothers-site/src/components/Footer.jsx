@@ -51,13 +51,13 @@ export default function Footer() {
         </div>
         <div className="footer-bottom">
           <div className="footer-socials">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <a href="https://www.facebook.com/profile.php?id=61577513835216" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <img src="/facebook.png" alt="Facebook" className="footer-social-icon" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href="https://www.instagram.com/yardbrothersbe/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <img src="/instagram.png" alt="Instagram" className="footer-social-icon" />
             </a>
-            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <a href="https://www.tiktok.com/@yardbrothersbe" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
               <img src="/tik tok.png" alt="TikTok" className="footer-social-icon" />
             </a>
           </div>

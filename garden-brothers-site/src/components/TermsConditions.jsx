@@ -19,7 +19,7 @@ export default function TermsConditions() {
           beschreven in de offerte of opdrachtbevestiging.
         </p>
 
-        <p>Ons werkgebied is Vlaanderen.</p>
+        <p>Ons werkgebied is de regio Antwerpen en Oost-Vlaanderen.</p>
 
         <h3>2. Offertes en prijzen</h3>
         <ul>
@@ -86,15 +86,12 @@ export default function TermsConditions() {
             14 dagen nadat de factuur werd verstuurd.
           </li>
           <li>
-            Bij opdrachten boven de 
-            
-            
-            
-            
-            
-            
-            €1.000,00 vragen wij een voorschot van 20% van het totale bedrag, te
-            betalen voor de start van de werken.
+            Bij opdrachten boven de €1.000,00 vragen wij een voorschot van 20%
+            van het totale bedrag, te betalen voor de start van de werken.
+          </li>
+          <li>
+            Er geldt een minimum facturatiebedrag van €85,00 inclusief btw per
+            uitgevoerde opdracht.
           </li>
           <li>
             Bij niet-tijdige betaling kunnen herinneringskosten en nalatigheids-

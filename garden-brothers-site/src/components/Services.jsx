@@ -9,7 +9,7 @@ export default function Services() {
           <div className="services-intro-text">
             <h2 className="services-intro-title">Yard Brothers</h2>
             <p className="services-intro-lead">
-              Professioneel tuinonderhoud en hogedrukreiniging in Vlaanderen.
+              Professioneel tuinonderhoud en hogedrukreiniging.
             </p>
             <p className="services-intro-body">
               Wij combineren persoonlijke service met vakmanschap. Van het netjes onderhouden
@@ -45,8 +45,8 @@ export default function Services() {
             <div className="service-feature-content">
               <h3 className="service-feature-title">Algemeen tuinonderhoud</h3>
               <p className="service-feature-text">
-                Van regelmatig snoeien en maaien tot onkruidbestrijding en seizoensonderhoud,
-                wij zorgen ervoor dat jouw tuin er altijd op zijn best uitziet.
+                Regelmatig snoeien, maaien en onkruid verwijderen zodat jouw tuin er het hele
+                jaar verzorgd uitziet.
               </p>
               <Link to="/diensten#dienst-algemeen" className="btn service-feature-btn">
                 Lees meer
@@ -63,10 +63,9 @@ export default function Services() {
             <div className="service-feature-content">
               <h3 className="service-feature-title">Hogedrukreiniging</h3>
               <p className="service-feature-text">
-                Droom je van een propere oprit of terras? Met professionele
-                hogedrukreiniging maken we verhardingen en buitenruimtes opnieuw schoon en
-                verzorgd, zonder beschadiging van het oppervlak. Voor deze werken maken we
-                gebruik van het water van de klant.
+                Grondige reiniging van opritten en terrassen met professionele hogedruk, zonder
+                beschadiging van het oppervlak. We werken met het water en de elektriciteit
+                van de klant.
               </p>
               <Link to="/diensten#dienst-hogedruk" className="btn service-feature-btn">
                 Lees meer
@@ -83,15 +82,9 @@ export default function Services() {
             <div className="service-feature-content">
               <h3 className="service-feature-title">Extra diensten</h3>
               <p className="service-feature-text">
-                Naast ons vaste aanbod helpen we je ook graag met eenmalige of specifieke
-                opdrachten.
+                Eenmalige of specifieke opdrachten, zoals grote opkuis of tijdelijke
+                onderhoudsbeurten.
               </p>
-              <ul className="service-feature-list">
-                <li>Tuinopruiming bij verkoop woning</li>
-                <li>Leegstaande tuinen onderhouden</li>
-                <li>Vakantie-onderhoud</li>
-                <li>Eenmalige grote opkuis</li>
-              </ul>
               <Link to="/diensten" className="btn service-feature-btn">
                 Lees meer
               </Link>

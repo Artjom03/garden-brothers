@@ -1,44 +1,37 @@
 import React, { useState } from "react";
 
 const projects = [
-  {
-    id: 1,
-    before: "/before_1.jpg",
-    after: "/after_1.jpg",
-  },
-  {
-    id: 2,
-    before: "/before_2.jpg",
-    after: "/after_2.jpg",
-  },
-  {
-    id: 3,
-    before: "/before_3.jpg",
-    after: "/after_3.jpg",
-  },
-  {
-    id: 4,
-    before: "/before_4.jpg",
-    after: "/after_4.jpg",
-  },
-  {
-    id: 5,
-    before: "/before_5.jpg",
-    after: "/after_5.jpg",
-  },
+  { id: 1, before: "/before_1.jpg", after: "/after_1.jpg" },
+  { id: 2, before: "/before_2.jpg", after: "/after_2.jpg" },
+  { id: 3, before: "/before_3.jpg", after: "/after_3.jpg" },
+  { id: 4, before: "/before_4.jpg", after: "/after_4.jpg" },
+  { id: 5, before: "/before_5.jpg", after: "/after_5.jpg" },
 ];
 
 export default function Portfolio() {
-  const marqueeItems = [...projects, ...projects];
-  const [activeIndex, setActiveIndex] = useState(0);
-  const totalProjects = projects.length;
+  const [desktopIndex, setDesktopIndex] = useState(0);
+  const [mobileIndex, setMobileIndex] = useState(0);
 
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + totalProjects) % totalProjects);
+  const totalProjects = projects.length;
+  const visibleDesktopCount = 2;
+  const totalDesktopPages = Math.ceil(totalProjects / visibleDesktopCount);
+
+  const handlePrevDesktop = () => {
+    setDesktopIndex((prev) =>
+      (prev - visibleDesktopCount + totalProjects) % totalProjects
+    );
   };
 
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % totalProjects);
+  const handleNextDesktop = () => {
+    setDesktopIndex((prev) => (prev + visibleDesktopCount) % totalProjects);
+  };
+
+  const handlePrevMobile = () => {
+    setMobileIndex((prev) => (prev - 1 + totalProjects) % totalProjects);
+  };
+
+  const handleNextMobile = () => {
+    setMobileIndex((prev) => (prev + 1) % totalProjects);
   };
 
   return (
@@ -59,37 +52,66 @@ export default function Portfolio() {
           voor detail en de expertise die we in elke tuin leggen. Ontdek hier de
           diversiteit van ons werk.
         </p>
-        {/* Desktop: automatische scroll-marquee */}
+
+        {/* Desktop: twee projecten per stap */}
         <div className="portfolio-beforeafter-row portfolio-beforeafter-row-desktop">
           <div className="portfolio-beforeafter-legend" aria-hidden="true">
             <span>BEFORE</span>
             <span>AFTER</span>
           </div>
-          <div className="portfolio-marquee-wrap">
-            <div className="portfolio-marquee-track">
-              {marqueeItems.map((project, index) => (
-                <div
-                  className="portfolio-beforeafter"
-                  key={project.id + "-" + index}
-                >
-                  <div className="portfolio-before">
-                    <img
-                      src={project.before}
-                      alt={`Voor: project ${project.id}`}
-                    />
+          <div className="portfolio-mobile-slider portfolio-desktop-slider">
+            <div className="portfolio-desktop-pair-row">
+              {Array.from({ length: visibleDesktopCount }).map((_, offset) => {
+                const index = (desktopIndex + offset) % totalProjects;
+                const project = projects[index];
+                if (!project) return null;
+                return (
+                  <div
+                    className="portfolio-beforeafter"
+                    key={project.id + "-desktop-" + offset}
+                  >
+                    <div className="portfolio-before">
+                      <img
+                        src={project.before}
+                        alt={`Voor: project ${project.id}`}
+                      />
+                    </div>
+                    <div className="portfolio-after">
+                      <img
+                        src={project.after}
+                        alt={`Na: project ${project.id}`}
+                      />
+                    </div>
                   </div>
-                  <div className="portfolio-after">
-                    <img
-                      src={project.after}
-                      alt={`Na: project ${project.id}`}
-                    />
-                  </div>
-                </div>
-              ))}
+                );
+              })}
+            </div>
+            <div className="portfolio-mobile-controls portfolio-desktop-controls">
+              <button
+                type="button"
+                className="portfolio-mobile-arrow"
+                onClick={handlePrevDesktop}
+                aria-label="Vorige realisaties"
+              >
+                &#8249;
+              </button>
+              <span className="portfolio-mobile-counter">
+                {Math.floor(desktopIndex / visibleDesktopCount) + 1} / {" "}
+                {totalDesktopPages}
+              </span>
+              <button
+                type="button"
+                className="portfolio-mobile-arrow"
+                onClick={handleNextDesktop}
+                aria-label="Volgende realisaties"
+              >
+                &#8250;
+              </button>
             </div>
           </div>
         </div>
-        {/* Mobiel: slider met pijlen */}
+
+        {/* Mobiel: één project per stap */}
         <div className="portfolio-beforeafter-row portfolio-beforeafter-row-mobile">
           <div className="portfolio-beforeafter-legend" aria-hidden="true">
             <span>BEFORE</span>
@@ -99,14 +121,14 @@ export default function Portfolio() {
             <div className="portfolio-beforeafter">
               <div className="portfolio-before">
                 <img
-                  src={projects[activeIndex].before}
-                  alt={`Voor: project ${projects[activeIndex].id}`}
+                  src={projects[mobileIndex].before}
+                  alt={`Voor: project ${projects[mobileIndex].id}`}
                 />
               </div>
               <div className="portfolio-after">
                 <img
-                  src={projects[activeIndex].after}
-                  alt={`Na: project ${projects[activeIndex].id}`}
+                  src={projects[mobileIndex].after}
+                  alt={`Na: project ${projects[mobileIndex].id}`}
                 />
               </div>
             </div>
@@ -114,18 +136,18 @@ export default function Portfolio() {
               <button
                 type="button"
                 className="portfolio-mobile-arrow"
-                onClick={handlePrev}
+                onClick={handlePrevMobile}
                 aria-label="Vorige realisatie"
               >
                 &#8249;
               </button>
               <span className="portfolio-mobile-counter">
-                {activeIndex + 1} / {totalProjects}
+                {mobileIndex + 1} / {totalProjects}
               </span>
               <button
                 type="button"
                 className="portfolio-mobile-arrow"
-                onClick={handleNext}
+                onClick={handleNextMobile}
                 aria-label="Volgende realisatie"
               >
                 &#8250;
@@ -133,6 +155,7 @@ export default function Portfolio() {
             </div>
           </div>
         </div>
+
         <div className="portfolio-outro">
           Geïnspireerd geraakt door onze projecten? Bij Yard Brothers staan we
           klaar om ook jouw tuin om te toveren tot een plek waar je volop kunt
