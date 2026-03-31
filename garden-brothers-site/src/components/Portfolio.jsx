@@ -54,6 +54,7 @@ export default function Portfolio() {
         </p>
 
         {/* Desktop: twee projecten per stap */}
+        {/* Desktop: twee projecten per stap */}
         <div className="portfolio-beforeafter-row portfolio-beforeafter-row-desktop">
           <div className="portfolio-beforeafter-legend" aria-hidden="true">
             <span>BEFORE</span>
