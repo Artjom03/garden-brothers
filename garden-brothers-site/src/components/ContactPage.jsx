@@ -21,7 +21,6 @@ export default function ContactPage() {
       formType: "contact",
       data: {
         name: form["contact-name"].value,
-        address: form["contact-address"].value,
         phone: form["contact-phone"].value,
         email: form["contact-email"].value,
         subject: form["contact-subject"].value,
