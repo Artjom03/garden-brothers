@@ -11,7 +11,7 @@ export default function InstagramSection() {
             Blijf op de hoogte van onze laatste projecten, voor- & na-foto&apos;s en exclusieve acties.
           </p>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/yardbrothersbe/"
             target="_blank"
             rel="noopener noreferrer"
             className="hero-btn hero-btn-primary instagram-btn"
@@ -57,7 +57,7 @@ export default function InstagramSection() {
                 <circle cx="18" cy="6" r="1" />
               </svg>
             </div>
-            <p className="instagram-handle">@gardenbrothers</p>
+            <p className="instagram-handle">@yardbrothersbe</p>
             <p className="instagram-card-text">
               Ontdek onze laatste werkzaamheden en resultaten.
             </p>
