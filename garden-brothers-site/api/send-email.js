@@ -16,6 +16,61 @@ function normalizeBody(req) {
   return req.body;
 }
 
+const MAX_ATTACHMENTS = 6;
+const MAX_ATTACHMENT_SIZE_BYTES = 10 * 1024 * 1024;
+const MAX_TOTAL_ATTACHMENTS_SIZE_BYTES = 25 * 1024 * 1024;
+
+function sanitizeAttachments(rawAttachments) {
+  if (!Array.isArray(rawAttachments) || rawAttachments.length === 0) {
+    return [];
+  }
+
+  if (rawAttachments.length > MAX_ATTACHMENTS) {
+    return { error: `Too many attachments. Maximum is ${MAX_ATTACHMENTS}.` };
+  }
+
+  let totalSize = 0;
+  const attachments = [];
+
+  for (const attachment of rawAttachments) {
+    if (!attachment || typeof attachment !== "object") {
+      return { error: "Invalid attachment payload" };
+    }
+
+    const filename = typeof attachment.filename === "string" ? attachment.filename.trim() : "";
+    const content = typeof attachment.content === "string" ? attachment.content.trim() : "";
+    const contentType = typeof attachment.contentType === "string"
+      ? attachment.contentType.trim()
+      : undefined;
+    const size = Number(attachment.size || 0);
+
+    if (!filename || !content) {
+      return { error: "Attachment is missing filename or content" };
+    }
+
+    if (!Number.isFinite(size) || size <= 0) {
+      return { error: `Attachment size is invalid for ${filename}` };
+    }
+
+    if (size > MAX_ATTACHMENT_SIZE_BYTES) {
+      return { error: `Attachment too large: ${filename} (max 10 MB)` };
+    }
+
+    totalSize += size;
+    if (totalSize > MAX_TOTAL_ATTACHMENTS_SIZE_BYTES) {
+      return { error: "Total attachment size is too large (max 25 MB)" };
+    }
+
+    attachments.push(
+      contentType
+        ? { filename, content, content_type: contentType }
+        : { filename, content }
+    );
+  }
+
+  return attachments;
+}
+
 function buildEmailPayload(formType, data) {
   if (formType === "offerte") {
     const required = ["name", "email", "subject", "message", "sector", "size"];
@@ -40,11 +95,18 @@ function buildEmailPayload(formType, data) {
       data.message,
       "",
       `Bestanden toegevoegd in formulier: ${data.hasFiles ? "Ja" : "Nee"}`,
+      `Aantal bijlagen: ${Array.isArray(data.attachments) ? data.attachments.length : 0}`,
     ].join("\n");
+
+    const attachments = sanitizeAttachments(data.attachments);
+    if (attachments.error) {
+      return { error: attachments.error };
+    }
 
     return {
       subject: `Offerteaanvraag - ${data.subject}`,
       text,
+      attachments,
     };
   }
 
@@ -121,6 +183,7 @@ export default async function handler(req, res) {
         to: [to],
         subject: emailPayload.subject,
         text: emailPayload.text,
+        attachments: emailPayload.attachments,
       }),
     });
 

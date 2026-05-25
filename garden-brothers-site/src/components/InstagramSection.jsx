@@ -57,7 +57,7 @@ export default function InstagramSection() {
                 <circle cx="18" cy="6" r="1" />
               </svg>
             </div>
-            <p className="instagram-handle">@yardbrothersbe</p>
+            <p className="instagram-handle">Yard Brothers</p>
             <p className="instagram-card-text">
               Ontdek onze laatste werkzaamheden en resultaten.
             </p>

@@ -9,6 +9,14 @@ npm install
 npm run dev
 ```
 
+`npm run dev` starts Vercel local dev on `http://localhost:5173`, including `/api/*` endpoints.
+
+Optional (frontend only, without API routes):
+
+```bash
+npm run dev:vite
+```
+
 ## Production Deployment (Vercel)
 
 1. Push your latest code to GitHub.

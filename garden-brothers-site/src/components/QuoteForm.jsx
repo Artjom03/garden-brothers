@@ -1,5 +1,25 @@
 import React, { useRef, useState } from "react";
 
+const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024;
+const MAX_TOTAL_SIZE_BYTES = 25 * 1024 * 1024;
+
+async function fileToAttachment(file) {
+  const buffer = await file.arrayBuffer();
+  const bytes = new Uint8Array(buffer);
+  let binary = "";
+
+  for (let i = 0; i < bytes.length; i += 1) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+
+  return {
+    filename: file.name,
+    contentType: file.type || "application/octet-stream",
+    size: file.size,
+    content: btoa(binary),
+  };
+}
+
 export default function QuoteForm() {
   const fileInput = useRef();
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -18,6 +38,38 @@ export default function QuoteForm() {
       return;
     }
 
+    const selectedFiles = Array.from(fileInput.current?.files || []);
+    const oversizedFile = selectedFiles.find((file) => file.size > MAX_FILE_SIZE_BYTES);
+    if (oversizedFile) {
+      setSubmitStatus({
+        type: "error",
+        message: `Bestand te groot: ${oversizedFile.name}. Maximum is 10 MB per bestand.`,
+      });
+      return;
+    }
+
+    const totalFilesSize = selectedFiles.reduce((sum, file) => sum + file.size, 0);
+    if (totalFilesSize > MAX_TOTAL_SIZE_BYTES) {
+      setSubmitStatus({
+        type: "error",
+        message: "De totale grootte van de bijlagen is te groot. Maximum is 25 MB.",
+      });
+      return;
+    }
+
+    let attachments = [];
+    if (selectedFiles.length > 0) {
+      try {
+        attachments = await Promise.all(selectedFiles.map(fileToAttachment));
+      } catch {
+        setSubmitStatus({
+          type: "error",
+          message: "Bijlagen konden niet verwerkt worden. Probeer opnieuw.",
+        });
+        return;
+      }
+    }
+
     const payload = {
       formType: "offerte",
       data: {
@@ -29,7 +81,8 @@ export default function QuoteForm() {
         sector: form.elements["sector"]?.value,
         size: form.elements["grootte"]?.value,
         message: form["quote-message"].value,
-        hasFiles: Boolean(fileInput.current?.files?.length),
+        hasFiles: attachments.length > 0,
+        attachments,
       },
     };
 
