@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 
-const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024;
-const MAX_TOTAL_SIZE_BYTES = 25 * 1024 * 1024;
+const MAX_FILE_SIZE_BYTES = 2 * 1024 * 1024;
+const MAX_TOTAL_SIZE_BYTES = 3 * 1024 * 1024;
 
 async function fileToAttachment(file) {
   const buffer = await file.arrayBuffer();
@@ -39,28 +39,36 @@ export default function QuoteForm() {
     }
 
     const selectedFiles = Array.from(fileInput.current?.files || []);
-    const oversizedFile = selectedFiles.find((file) => file.size > MAX_FILE_SIZE_BYTES);
-    if (oversizedFile) {
-      setSubmitStatus({
-        type: "error",
-        message: `Bestand te groot: ${oversizedFile.name}. Maximum is 10 MB per bestand.`,
-      });
-      return;
+    const acceptedFiles = [];
+    const skippedFiles = [];
+    let acceptedTotalSize = 0;
+
+    console.log("[QuoteForm] Selected files:", selectedFiles.map((f) => ({ name: f.name, size: f.size })));
+
+    for (const file of selectedFiles) {
+      if (file.size > MAX_FILE_SIZE_BYTES) {
+        skippedFiles.push(file.name);
+        console.log("[QuoteForm] Skipped (too large):", file.name, file.size);
+        continue;
+      }
+
+      if (acceptedTotalSize + file.size > MAX_TOTAL_SIZE_BYTES) {
+        skippedFiles.push(file.name);
+        console.log("[QuoteForm] Skipped (total too large):", file.name);
+        continue;
+      }
+
+      acceptedFiles.push(file);
+      acceptedTotalSize += file.size;
+      console.log("[QuoteForm] Accepted:", file.name, file.size);
     }
 
-    const totalFilesSize = selectedFiles.reduce((sum, file) => sum + file.size, 0);
-    if (totalFilesSize > MAX_TOTAL_SIZE_BYTES) {
-      setSubmitStatus({
-        type: "error",
-        message: "De totale grootte van de bijlagen is te groot. Maximum is 25 MB.",
-      });
-      return;
-    }
+    console.log("[QuoteForm] Processing", acceptedFiles.length, "files,", skippedFiles.length, "skipped");
 
     let attachments = [];
-    if (selectedFiles.length > 0) {
+    if (acceptedFiles.length > 0) {
       try {
-        attachments = await Promise.all(selectedFiles.map(fileToAttachment));
+        attachments = await Promise.all(acceptedFiles.map(fileToAttachment));
       } catch {
         setSubmitStatus({
           type: "error",
@@ -88,25 +96,55 @@ export default function QuoteForm() {
 
     try {
       setIsSubmitting(true);
-      const response = await fetch("/api/send-email", {
+      const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+      const apiUrl = isLocalhost ? "https://www.yardbrothers.be/api/send-email" : "/api/send-email";
+
+      const response = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
-      const result = await response.json();
+      const rawBody = await response.text();
+      console.log("[QuoteForm] Response status:", response.status);
+      console.log("[QuoteForm] Response body:", rawBody);
 
-      if (!response.ok || !result.ok) {
+      let result = null;
+      if (rawBody) {
+        try {
+          result = JSON.parse(rawBody);
+        } catch {
+          result = null;
+        }
+      }
+
+      console.log("[QuoteForm] Parsed result:", result);
+
+      if (!response.ok || !result?.ok) {
+        if (response.status === 413) {
+          setSubmitStatus({
+            type: "error",
+            message: "De bijlagen zijn te groot voor verzending. Gebruik kleinere of minder foto's.",
+          });
+          return;
+        }
+
+        const errorMsg = result?.message || "Verzenden is mislukt. Controleer je gegevens en probeer opnieuw.";
+        console.error("[QuoteForm] Error:", errorMsg);
         setSubmitStatus({
           type: "error",
-          message: result?.message || "Verzenden is mislukt. Probeer het opnieuw.",
+          message: errorMsg,
         });
         return;
       }
 
+      const successMessage = skippedFiles.length > 0
+        ? `Je offerteaanvraag is verzonden. ${skippedFiles.length} bijlage(n) werd(en) overgeslagen omdat ze te groot waren.`
+        : "Je offerteaanvraag is verzonden. We nemen snel contact op.";
+
       setSubmitStatus({
         type: "success",
-        message: "Je offerteaanvraag is verzonden. We nemen snel contact op.",
+        message: successMessage,
       });
       form.reset();
     } catch {
@@ -173,7 +211,9 @@ export default function QuoteForm() {
           </label>
 
           <div className="quote-upload">
-            <label className="quote-label" htmlFor="quote-files">Upload foto's van wat er moet gebeuren</label>
+            <label className="quote-label" htmlFor="quote-files">
+              Upload foto's van wat er moet gebeuren (optioneel, max 2 MB per bestand)
+            </label>
             <input id="quote-files" ref={fileInput} type="file" multiple />
           </div>
 

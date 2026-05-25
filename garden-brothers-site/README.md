@@ -9,12 +9,12 @@ npm install
 npm run dev
 ```
 
-`npm run dev` starts Vercel local dev on `http://localhost:5173`, including `/api/*` endpoints.
+`npm run dev` starts the Vite frontend locally.
 
-Optional (frontend only, without API routes):
+For local API testing with Vercel functions:
 
 ```bash
-npm run dev:vite
+npm run dev:vercel
 ```
 
 ## Production Deployment (Vercel)

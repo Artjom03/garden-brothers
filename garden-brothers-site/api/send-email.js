@@ -16,9 +16,9 @@ function normalizeBody(req) {
   return req.body;
 }
 
-const MAX_ATTACHMENTS = 6;
-const MAX_ATTACHMENT_SIZE_BYTES = 10 * 1024 * 1024;
-const MAX_TOTAL_ATTACHMENTS_SIZE_BYTES = 25 * 1024 * 1024;
+const MAX_ATTACHMENTS = 5;
+const MAX_ATTACHMENT_SIZE_BYTES = 2 * 1024 * 1024;
+const MAX_TOTAL_ATTACHMENTS_SIZE_BYTES = 3 * 1024 * 1024;
 
 function sanitizeAttachments(rawAttachments) {
   if (!Array.isArray(rawAttachments) || rawAttachments.length === 0) {
@@ -53,12 +53,12 @@ function sanitizeAttachments(rawAttachments) {
     }
 
     if (size > MAX_ATTACHMENT_SIZE_BYTES) {
-      return { error: `Attachment too large: ${filename} (max 10 MB)` };
+      return { error: `Attachment too large: ${filename} (max 2 MB)` };
     }
 
     totalSize += size;
     if (totalSize > MAX_TOTAL_ATTACHMENTS_SIZE_BYTES) {
-      return { error: "Total attachment size is too large (max 25 MB)" };
+      return { error: "Total attachment size is too large (max 3 MB)" };
     }
 
     attachments.push(
