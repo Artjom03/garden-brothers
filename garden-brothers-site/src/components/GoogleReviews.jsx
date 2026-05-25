@@ -1,46 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-// Vervang onderstaande gegevens door je echte Google reviews
-const reviews = [
-  {
-    id: 1,
-    name: "Jorrit De Jonghe",
-    service: "Opritreiniging",
-    text: "Thanks for the amazing service! Alles tot in de puntjes afgewerkt.",
-  },
-  {
-    id: 2,
-    name: "Anoniem",
-    service: "Snoeiwerken",
-    text: "Heel professioneel, duidelijke communicatie en prachtig resultaat.",
-  },
-  {
-    id: 3,
-    name: "Anoniem",
-    service: "Gazon",
-    text: "Ons gazon ziet er weer als nieuw uit.",
-  },
-  {
-    id: 4,
-    name: "Anoniem",
-    service: "Tuinonderhoud",
-    text: "Mijn tuin ligt er weer tiptop bij dankzij een vriendelijke jongeman.",
-  },
-];
-
-function StarRow() {
-  return (
-    <div className="google-review-stars" aria-hidden="true">
-      {Array.from({ length: 5 }).map((_, index) => (
-        <span key={index}>★</span>
-      ))}
-    </div>
-  );
-}
+const ELFSIGHT_SCRIPT_SRC = "https://static.elfsight.com/platform/platform.js";
 
 export default function GoogleReviews() {
-  // Dupliceer de lijst zodat de balk eindeloos kan scrollen
-  const marqueeItems = [...reviews, ...reviews];
+  const widgetId = import.meta.env.VITE_ELFSIGHT_GOOGLE_REVIEWS_ID;
+
+  useEffect(() => {
+    if (!widgetId) return;
+
+    const existing = document.querySelector(`script[src=\"${ELFSIGHT_SCRIPT_SRC}\"]`);
+    if (existing) return;
+
+    const script = document.createElement("script");
+    script.src = ELFSIGHT_SCRIPT_SRC;
+    script.async = true;
+    document.body.appendChild(script);
+  }, [widgetId]);
 
   return (
     <section className="google-reviews-section" aria-labelledby="google-reviews-title">
@@ -51,25 +26,13 @@ export default function GoogleReviews() {
             Beoordeeld als uitstekend door onze klanten
           </h2>
         </div>
-      </div>
-      <div className="google-reviews-marquee-wrap">
-        <div className="google-reviews-marquee-track">
-          {marqueeItems.map((review, index) => (
-            <article className="google-review-card" key={review.id + "-" + index}>
-              <header className="google-review-header">
-                <div className="google-review-avatar" aria-hidden="true">
-                  <span>{review.name.charAt(0)}</span>
-                </div>
-                <div className="google-review-meta">
-                  <p className="google-review-name">{review.name}</p>
-                  <p className="google-review-time">Onlangs</p>
-                </div>
-                <StarRow />
-              </header>
-              <p className="google-review-text">{review.text}</p>
-            </article>
-          ))}
-        </div>
+        {widgetId ? (
+          <div className={`elfsight-app-${widgetId}`} data-elfsight-app-lazy />
+        ) : (
+          <p className="google-reviews-fallback">
+            Google reviews worden binnenkort geladen.
+          </p>
+        )}
       </div>
     </section>
   );
