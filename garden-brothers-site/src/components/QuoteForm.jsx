@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 
-const MAX_FILE_SIZE_BYTES = 4 * 1024 * 1024;
-const MAX_TOTAL_SIZE_BYTES = 8 * 1024 * 1024;
+const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024;
+const MAX_TOTAL_SIZE_BYTES = 20 * 1024 * 1024;
 
 async function fileToAttachment(file) {
   const buffer = await file.arrayBuffer();
@@ -64,6 +64,15 @@ export default function QuoteForm() {
     }
 
     console.log("[QuoteForm] Processing", acceptedFiles.length, "files,", skippedFiles.length, "skipped");
+
+    if (skippedFiles.length > 0) {
+      const skippedList = skippedFiles.join(", ");
+      setSubmitStatus({
+        type: "error",
+        message: `Deze bestand(en) konden niet meegestuurd worden omdat ze te groot zijn: ${skippedList}. Verklein ze en probeer opnieuw.`,
+      });
+      return;
+    }
 
     let attachments = [];
     if (acceptedFiles.length > 0) {
@@ -138,10 +147,7 @@ export default function QuoteForm() {
         return;
       }
 
-      const successMessage = skippedFiles.length > 0
-        ? `Je offerteaanvraag is verzonden. ${skippedFiles.length} bijlage(n) werd(en) overgeslagen omdat ze te groot waren.`
-        : "Je offerteaanvraag is verzonden. We nemen snel contact op.";
-
+      const successMessage = "Je offerteaanvraag is verzonden. We nemen snel contact op.";
       setSubmitStatus({
         type: "success",
         message: successMessage,
@@ -212,7 +218,7 @@ export default function QuoteForm() {
 
           <div className="quote-upload">
             <label className="quote-label" htmlFor="quote-files">
-              Upload foto's van wat er moet gebeuren (optioneel, max 4 MB per bestand)
+              Upload foto's van wat er moet gebeuren (optioneel, max 5 MB per bestand)
             </label>
             <input id="quote-files" ref={fileInput} type="file" multiple />
           </div>
