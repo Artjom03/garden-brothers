@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 
-const MAX_FILE_SIZE_BYTES = 2 * 1024 * 1024;
-const MAX_TOTAL_SIZE_BYTES = 3 * 1024 * 1024;
+const MAX_FILE_SIZE_BYTES = 4 * 1024 * 1024;
+const MAX_TOTAL_SIZE_BYTES = 8 * 1024 * 1024;
 
 async function fileToAttachment(file) {
   const buffer = await file.arrayBuffer();
@@ -212,7 +212,7 @@ export default function QuoteForm() {
 
           <div className="quote-upload">
             <label className="quote-label" htmlFor="quote-files">
-              Upload foto's van wat er moet gebeuren (optioneel, max 2 MB per bestand)
+              Upload foto's van wat er moet gebeuren (optioneel, max 4 MB per bestand)
             </label>
             <input id="quote-files" ref={fileInput} type="file" multiple />
           </div>
